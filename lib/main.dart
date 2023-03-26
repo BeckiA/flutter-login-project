@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_app/src/utils/themes/themes.dart';
+import '../src/utils/themes/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: VAAppTheme.lightTheme,
       darkTheme: VAAppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       home: MyHomePage(),
     );
   }
