@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.2.19
   get: ^4.6.5
+  liquid_swipe: ^3.0.0
+  smooth_page_indicator: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +76,7 @@ flutter:
   #   - logo/a_dot_burr.jpeg
     - assets/logo/
     - assets/images/
+    - assets/images/on-boarding-images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
