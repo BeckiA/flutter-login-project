@@ -7,6 +7,7 @@ import '../../constants/colors.dart';
 import '../../constants/image_strings.dart';
 import '../../constants/text_strings.dart';
 import '../model/on_boarding_model.dart';
+import '../screens/login/login_screen.dart';
 import '../screens/on_boarding_screen/on_boarding_page_widget.dart';
 
 class OnBoardingController extends GetxController {
@@ -51,7 +52,7 @@ class OnBoardingController extends GetxController {
   }
 
   displayLogin() {
-    Get.to(Welcome());
+    Get.to(LoginScreen());
   }
 
   skip() => controller.jumpToPage(page: 2);

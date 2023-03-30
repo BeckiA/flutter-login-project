@@ -15,3 +15,21 @@ const String VAOnBoardingSubTitle3 =
 const String VAOnBoardingCounter1 = "1/3";
 const String VAOnBoardingCounter2 = "2/3";
 const String VAOnBoardingCounter3 = "3/3";
+
+// -- Login Screen Text
+
+const String VALoginTitle = "Welcome Back,";
+const String VALoginSubTitle =
+    "Sign in with your email and password or continue with Google";
+const String VARememberMe = "Remember Me";
+const String VAHaveAcc = "Already have an account?";
+const String VAGuest = "Continue as a Guest";
+const VALogin = "Login";
+const VASignup = "Signup";
+const VAEmail = "Email";
+const VAPassword = "Password";
+const VAForgot = "Forgot Password";
+const VASignInWithGoogle = "Sign In With Google";
+const VAAlreadyAcc = "Already Have An Account? ";
+const VADontHaveAcc = "Don't Have An Account? ";
+const VAContinue = "Continue as a Guest";

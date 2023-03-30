@@ -35,8 +35,9 @@ class OnBoardingPageWidget extends StatelessWidget {
             ),
             Text(
               model.subTitle,
+              style: TextStyle(fontSize: 16, color: Colors.black),
               textAlign: TextAlign.center,
-            ),
+            )
           ],
         ),
         Text(model.counterText, style: Theme.of(context).textTheme.titleLarge),
