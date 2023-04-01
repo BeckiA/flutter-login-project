@@ -27,20 +27,31 @@ class OnBoardingPageWidget extends StatelessWidget {
           children: [
             Text(
               model.title,
-              style: Theme.of(context).textTheme.displayMedium,
+              style: TextStyle(
+                fontSize: 38,
+                fontFamily: "Montserrat",
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            Text(
+              model.subTitle,
+              style: TextStyle(
+                  fontFamily: "Poppins", color: Colors.black, fontSize: 14),
               textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 10.0,
             ),
-            Text(
-              model.subTitle,
-              style: TextStyle(fontSize: 16, color: Colors.black),
-              textAlign: TextAlign.center,
-            )
           ],
         ),
-        Text(model.counterText, style: Theme.of(context).textTheme.titleLarge),
+        Text(model.counterText,
+            style: TextStyle(
+                fontFamily: "Poppins", color: Colors.black54, fontSize: 24)),
         SizedBox(
           height: 50.0,
         )

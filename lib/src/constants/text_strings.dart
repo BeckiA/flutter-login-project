@@ -26,10 +26,17 @@ const String VAHaveAcc = "Already have an account?";
 const String VAGuest = "Continue as a Guest";
 const VALogin = "Login";
 const VASignup = "Signup";
-const VAEmail = "Email";
+const VAEmail = "E-mail";
 const VAPassword = "Password";
 const VAForgot = "Forgot Password";
-const VASignInWithGoogle = "Sign In With Google";
-const VAAlreadyAcc = "Already Have An Account? ";
+const VASignInWithGoogle = "Sign-In With Google";
 const VADontHaveAcc = "Don't Have An Account? ";
 const VAContinue = "Continue as a Guest";
+
+// -- Signup Screen Text
+const String VASignUPTitle = "Get on Board!";
+const String VASignUpSubtitle =
+    "Create your profile to start your journey with us";
+const String VAAlreadyAcc = "Already Have An Account? ";
+const String VAFullName = "Full Name";
+const String VAPhoneNo = "Phone Number";

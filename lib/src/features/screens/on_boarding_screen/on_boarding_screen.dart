@@ -28,12 +28,14 @@ class OnBoardingScreen extends StatelessWidget {
           enableSideReveal: true,
         ),
         Obx(() => Positioned(
-            bottom: 60.0,
+            bottom: 50.0,
             child: ObController.currentPage.value == 2
                 ? ElevatedButton(
                     style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(VAWhiteColor),
                         padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.symmetric(horizontal: 64, vertical: 16)),
+                            EdgeInsets.symmetric(horizontal: 64, vertical: 24)),
                         backgroundColor:
                             MaterialStateProperty.all<Color>(VASeconsdaryColor),
                         shape:
@@ -51,17 +53,18 @@ class OnBoardingScreen extends StatelessWidget {
                       ObController.animateToNextSlide();
                     },
                     style: ElevatedButton.styleFrom(
-                        side: const BorderSide(color: Colors.black26),
+                        backgroundColor: Colors.white,
+                        side: const BorderSide(color: VASeconsdaryColor),
                         shape: const CircleBorder(),
-                        padding: const EdgeInsets.all(20),
-                        onPrimary: Colors.white),
+                        padding: const EdgeInsets.all(20)),
                     child: Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Color(0xFF171201),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.arrow_forward_ios),
+                      child: const Icon(Icons.arrow_forward_ios,
+                          color: Colors.white),
                     )))),
         Positioned(
           top: 50,

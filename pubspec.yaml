@@ -46,12 +46,12 @@ dev_dependencies:
 flutter_native_splash:
   color: "#000000"
   color_dark: "#272727"
-  image: assets/logo/visit_amhara_logo.jpg
-  image_dark: assets/logo/visit_amhara_logo.jpg
+  image: assets/images/login-images/visit-amhara-logo.png
+  image_dark: assets/images/login-images/visit-amhara-logo.png
   android_12:
-    image: assets/logo/visit_amhara_logo.jpg
+    image: assets/images/login-images/visit-amhara-logo.png
     icon_background_color: "#000000"
-    image_dark: assets/logo/visit_amhara_logo.jpg
+    image_dark: assets/images/login-images/visit-amhara-logo.png
     icon_background_color_dark: "#272727"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

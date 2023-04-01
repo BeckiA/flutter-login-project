@@ -20,30 +20,27 @@ class LoginForm extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
-              decoration: const InputDecoration(
+              style: TextStyle(fontSize: 16.0),
+              decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person_outline_outlined),
                 labelText: VAEmail,
                 hintText: VAEmail,
-                hintStyle: TextStyle(fontSize: 14),
-                border: OutlineInputBorder(),
-                contentPadding: const EdgeInsets.symmetric(vertical: 2),
               ),
             ),
             const SizedBox(
               height: VAFormHeight - 20,
             ),
             TextFormField(
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.key_outlined),
-                  labelText: VAPassword,
-                  hintText: VAPassword,
-                  hintStyle: TextStyle(fontSize: 14),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.remove_red_eye_sharp),
-                    onPressed: null,
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(vertical: 2),
-                  border: OutlineInputBorder()),
+              style: TextStyle(fontSize: 16.0),
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.key_outlined),
+                labelText: VAPassword,
+                hintText: VAPassword,
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.remove_red_eye_sharp),
+                  onPressed: null,
+                ),
+              ),
             ),
             Align(
               alignment: Alignment.centerRight,
@@ -55,16 +52,9 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  style: ButtonStyle(
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.symmetric(horizontal: 64, vertical: 16)),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(VASeconsdaryColor),
-                  ),
                   onPressed: () {},
                   child: Text(
                     VALogin.toUpperCase(),
-                    style: TextStyle(fontSize: 18, color: Colors.white70),
                   )),
             ),
           ],

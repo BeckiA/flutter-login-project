@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'src/features/screens/splash_screen/splash_screen.dart';
+import 'package:login_app/src/features/screens/on_boarding_screen/on_boarding_screen.dart';
 import '../src/utils/themes/themes.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: VAAppTheme.lightTheme,
       darkTheme: VAAppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: SplashScreen(),
+      home: OnBoardingScreen(),
     );
   }
 }
