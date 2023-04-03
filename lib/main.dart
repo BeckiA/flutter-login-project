@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:login_app/src/features/screens/on_boarding_screen/on_boarding_screen.dart';
 import '../src/utils/themes/themes.dart';
 
@@ -16,20 +17,10 @@ class MyApp extends StatelessWidget {
       darkTheme: VAAppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: OnBoardingScreen(),
+      debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.leftToRightWithFade,
+      transitionDuration: const Duration(milliseconds: 500),
     );
   }
 }
 
-// class MyHomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: const Text("Splash Screen"),
-//           leading: const Icon(Icons.ondemand_video),
-//         ),
-//         body: const Center(
-//           child: Text("Homepage"),
-//         ));
-//   }
-// }

@@ -4,20 +4,29 @@ import '../constants/image_strings.dart';
 import '../constants/text_strings.dart';
 
 class FormHeader extends StatelessWidget {
-  const FormHeader(
-      {super.key,
-      required this.size,
-      required this.image,
-      required this.subTitle,
-      required this.title});
+  const FormHeader({
+    this.heightBetween,
+    this.imageColor,
+    this.imageHeight = 0.2,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.textAlign,
+    required this.size,
+    required this.image,
+    required this.subTitle,
+    required this.title,
+  });
 
   final Size size;
   final String image, title, subTitle;
-
+  final CrossAxisAlignment crossAxisAlignment;
+  final Color? imageColor;
+  final double imageHeight;
+  final double? heightBetween;
+  final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: crossAxisAlignment,
       children: [
         Image(
           image: AssetImage(image),

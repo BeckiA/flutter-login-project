@@ -16,3 +16,7 @@ const String VALoginScreenImage =
 
 /* Login  Image */
 const String VALoginImage = "assets/logo/google-logo.png";
+
+/* Forgot password Image */
+const String VAForgotPassword =
+    "assets/images/forgot-password/forgot-password.png";

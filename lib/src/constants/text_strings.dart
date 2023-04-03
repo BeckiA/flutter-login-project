@@ -28,7 +28,7 @@ const VALogin = "Login";
 const VASignup = "Signup";
 const VAEmail = "E-mail";
 const VAPassword = "Password";
-const VAForgot = "Forgot Password";
+const VAForgot = "Forget Password";
 const VASignInWithGoogle = "Sign-In With Google";
 const VADontHaveAcc = "Don't Have An Account? ";
 const VAContinue = "Continue as a Guest";
@@ -40,3 +40,19 @@ const String VASignUpSubtitle =
 const String VAAlreadyAcc = "Already Have An Account? ";
 const String VAFullName = "Full Name";
 const String VAPhoneNo = "Phone Number";
+
+/* Forget password Text */
+const String VAForgetPasswordTitle = "Make Selection";
+const String VAForgetPasswordSubTitle =
+    "Select one of the options given below to reset your password.";
+const String VAResetViaEmail = "Reset via E-Mail Verification";
+const String VAResetViaPhone = "Reset via Phone Verification";
+
+/* Forget via Phone  -Text */
+const String VAForgetPhoneSubTitle =
+    "Enter your registered Phone No to recieve OTP";
+
+/* Forget via Email  -Text */
+const String VAForgetEmailSubTitle =
+    "Enter your registered E-Mail to recieve OTP";
+const String VANext = "Next";

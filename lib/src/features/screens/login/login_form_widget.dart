@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
 import '../../../constants/text_strings.dart';
+import '../forget_password/forget_password_options/forget_password_bottomsheet.dart';
+import '../forget_password/forget_password_options/forget_password_widget.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -46,7 +48,9 @@ class LoginForm extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                 child: const Text(VAForgot),
-                onPressed: () {},
+                onPressed: () {
+                  ForgetPasswordScreen.buildshowModalBottomSheet(context);
+                },
               ),
             ),
             SizedBox(
