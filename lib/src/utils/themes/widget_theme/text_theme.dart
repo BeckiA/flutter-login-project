@@ -4,7 +4,7 @@ class VATextTheme {
   static TextTheme lightTextTheme = TextTheme(
       // ignore: deprecated_member_use
       displayMedium: TextStyle(
-        fontSize: 38,
+        fontSize: 32,
         fontFamily: "Montserrat",
         color: Colors.black87,
         fontWeight: FontWeight.bold,
@@ -17,8 +17,9 @@ class VATextTheme {
       ),
       titleSmall:
           TextStyle(fontFamily: "Poppins", color: Colors.black54, fontSize: 28),
-      titleMedium: TextStyle(
-          fontFamily: "Poppins", color: Colors.black54, fontSize: 32));
+      titleMedium:
+          TextStyle(fontFamily: "Poppins", color: Colors.black54, fontSize: 32),
+      titleLarge: TextStyle(color: Colors.black));
 
   static TextTheme darkTextTheme = TextTheme(
       displayMedium: TextStyle(
@@ -34,6 +35,7 @@ class VATextTheme {
       ),
       titleSmall: TextStyle(
           fontFamily: "Montserrat", color: Colors.white60, fontSize: 28),
-      titleMedium: TextStyle(
-          fontFamily: "Poppins", color: Colors.white60, fontSize: 32));
+      titleMedium:
+          TextStyle(fontFamily: "Poppins", color: Colors.white60, fontSize: 32),
+      titleLarge: TextStyle(color: Colors.black));
 }

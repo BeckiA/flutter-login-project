@@ -49,9 +49,7 @@ class OnBoardingPageWidget extends StatelessWidget {
             ),
           ],
         ),
-        Text(model.counterText,
-            style: TextStyle(
-                fontFamily: "Poppins", color: Colors.black54, fontSize: 24)),
+        Text(model.counterText, style: Theme.of(context).textTheme.titleLarge),
         SizedBox(
           height: 50.0,
         )

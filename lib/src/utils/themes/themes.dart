@@ -7,11 +7,13 @@ import '/src/utils/themes/widget_theme/text_theme.dart';
 class VAAppTheme {
   VAAppTheme._();
   static ThemeData lightTheme = ThemeData(
-      brightness: Brightness.light,
-      textTheme: VATextTheme.lightTextTheme,
-      elevatedButtonTheme: VAElevatedButtonTheme.lightElevatedButtonTheme,
-      outlinedButtonTheme: VAOutlinedButtonTheme.lightOutlinedButtonTheme,
-      inputDecorationTheme: VATextFormFieldTheme.lightInputDecorationTheme);
+    brightness: Brightness.light,
+    textTheme: VATextTheme.lightTextTheme,
+    elevatedButtonTheme: VAElevatedButtonTheme.lightElevatedButtonTheme,
+    outlinedButtonTheme: VAOutlinedButtonTheme.lightOutlinedButtonTheme,
+    inputDecorationTheme: VATextFormFieldTheme.lightInputDecorationTheme,
+  );
+
   static ThemeData darkTheme = ThemeData(
       brightness: Brightness.dark,
       textTheme: VATextTheme.darkTextTheme,
