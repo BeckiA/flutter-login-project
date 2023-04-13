@@ -56,3 +56,8 @@ const String VAForgetPhoneSubTitle =
 const String VAForgetEmailSubTitle =
     "Enter your registered E-Mail to recieve OTP";
 const String VANext = "Next";
+
+/* OTP Texts  -Text */
+const String VAOTPTittle = "CO\nDE";
+const String VAOTPSubtitle = "Verification";
+const String VAOTPMessage = "Enter the verication code sent at ";

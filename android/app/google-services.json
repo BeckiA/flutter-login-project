@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "166015026460",
+    "project_id": "visit-amhara-login",
+    "storage_bucket": "visit-amhara-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166015026460:android:c1b7d93e5bf06fb2fbe6d9",
+        "android_client_info": {
+          "package_name": "com.example.login_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166015026460-j7np2f43emsn9v73jm23f2a8suhknp4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoH1sxR4XdMcvQmF8gJsCX9jYEFP6YOsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166015026460-j7np2f43emsn9v73jm23f2a8suhknp4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
