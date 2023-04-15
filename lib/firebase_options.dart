@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -70,6 +67,18 @@ class DefaultFirebaseOptions {
     messagingSenderId: '166015026460',
     projectId: 'visit-amhara-login',
     storageBucket: 'visit-amhara-login.appspot.com',
+    androidClientId: '166015026460-1hrjdivv1rqktj0eisu5t9eqjq4ch057.apps.googleusercontent.com',
+    iosClientId: '166015026460-kvc7smacp4amhe5q24fkbknp8h3rkp8v.apps.googleusercontent.com',
+    iosBundleId: 'com.example.loginApp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAFJg7r_nJ_KxQdsCeY7eVPR8CW057daew',
+    appId: '1:166015026460:ios:789467d4e9a92847fbe6d9',
+    messagingSenderId: '166015026460',
+    projectId: 'visit-amhara-login',
+    storageBucket: 'visit-amhara-login.appspot.com',
+    androidClientId: '166015026460-1hrjdivv1rqktj0eisu5t9eqjq4ch057.apps.googleusercontent.com',
     iosClientId: '166015026460-kvc7smacp4amhe5q24fkbknp8h3rkp8v.apps.googleusercontent.com',
     iosBundleId: 'com.example.loginApp',
   );

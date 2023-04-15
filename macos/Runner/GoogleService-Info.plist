@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>166015026460-kvc7smacp4amhe5q24fkbknp8h3rkp8v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.166015026460-kvc7smacp4amhe5q24fkbknp8h3rkp8v</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>166015026460-1hrjdivv1rqktj0eisu5t9eqjq4ch057.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAFJg7r_nJ_KxQdsCeY7eVPR8CW057daew</string>
+	<key>GCM_SENDER_ID</key>
+	<string>166015026460</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.loginApp</string>
+	<key>PROJECT_ID</key>
+	<string>visit-amhara-login</string>
+	<key>STORAGE_BUCKET</key>
+	<string>visit-amhara-login.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:166015026460:ios:789467d4e9a92847fbe6d9</string>
+</dict>
+</plist>

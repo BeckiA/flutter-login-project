@@ -4,6 +4,7 @@ import 'package:login_app/src/features/controllers/signup_controllers.dart';
 
 import '../../../constants/sizes.dart';
 import '../../../constants/text_strings.dart';
+import '../forget_password/forget_password_otp/forgot_password_otp_screen.dart';
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -78,10 +79,13 @@ class _SignUpFormState extends State<SignUpForm> {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey?.currentState?.validate() ?? false) {
-                    SignUpController.instance.registerUser(
-                      controller.email.text.trim(),
-                      controller.password.text.trim(),
-                    );
+                    // SignUpController.instance.registerUser(
+                    //   controller.email.text.trim(),
+                    //   controller.password.text.trim(),
+                    // );
+                    SignUpController.instance
+                        .phoneAuthentication(controller.phoneNo.text.trim());
+                    Get.to(OTPScreen());
                   }
                 },
                 child: Text(VASignup.toUpperCase()),

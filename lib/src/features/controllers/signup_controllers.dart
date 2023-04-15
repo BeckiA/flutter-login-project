@@ -13,9 +13,18 @@ class SignUpController extends GetxController {
 
   // call this function from the Design & it will do the rest
   void registerUser(String email, String password) {
-    print(email);
-    print(password);
-    AuthenticationRepository.instance
-        .createUserWithEmailAndPassword(email, password);
+    // print(email);
+    // print(password);
+    String? error = AuthenticationRepository.instance
+        .createUserWithEmailAndPassword(email, password) as String?;
+    if (error != null) {
+      Get.showSnackbar(GetSnackBar(
+        message: error.toString(),
+      ));
+    }
+  }
+
+  void phoneAuthentication(String phoneNo) {
+    AuthenticationRepository.instance.PhoneAuthentication(phoneNo);
   }
 }
