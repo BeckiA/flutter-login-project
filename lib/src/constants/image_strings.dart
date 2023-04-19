@@ -20,3 +20,6 @@ const String VALoginImage = "assets/logo/google-logo.png";
 /* Forgot password Image */
 const String VAForgotPassword =
     "assets/images/forgot-password/forgot-password.png";
+
+// Profile Image
+const String VAProfileImage = "assets/images/profile/profile-picture.jpg";

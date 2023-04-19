@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_app/src/features/model/user_model.dart';
+import 'package:login_app/src/features/screens/forget_password/forget_password_otp/forgot_password_otp_screen.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:login_app/src/repository/user_repository/user_repository.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
@@ -11,6 +14,7 @@ class SignUpController extends GetxController {
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
 
+  final userRepo = Get.put(UserRepository());
   // call this function from the Design & it will do the rest
   void registerUser(String email, String password) {
     // print(email);
@@ -24,7 +28,14 @@ class SignUpController extends GetxController {
     }
   }
 
+  Future<void> createUser(UserModel user) async {
+    await userRepo.createUser(user);
+    phoneAuthentication(user.phoneNo);
+    Get.to(() => OTPScreen());
+  }
+
   void phoneAuthentication(String phoneNo) {
     AuthenticationRepository.instance.PhoneAuthentication(phoneNo);
+    // Get.to(() => OTPScreen());
   }
 }

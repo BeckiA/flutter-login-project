@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/controllers/signup_controllers.dart';
+import 'package:login_app/src/features/model/user_model.dart';
 
 import '../../../constants/sizes.dart';
 import '../../../constants/text_strings.dart';
@@ -83,9 +84,14 @@ class _SignUpFormState extends State<SignUpForm> {
                     //   controller.email.text.trim(),
                     //   controller.password.text.trim(),
                     // );
-                    SignUpController.instance
-                        .phoneAuthentication(controller.phoneNo.text.trim());
-                    Get.to(OTPScreen());
+
+                    final user = UserModel(
+                        email: controller.email.text.trim(),
+                        password: controller.password.text.trim(),
+                        fullName: controller.fullName.text.trim(),
+                        phoneNo: controller.phoneNo.text.trim());
+
+                    SignUpController.instance.createUser(user);
                   }
                 },
                 child: Text(VASignup.toUpperCase()),

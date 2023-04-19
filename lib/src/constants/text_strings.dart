@@ -32,7 +32,7 @@ const VAForgot = "Forget Password";
 const VASignInWithGoogle = "Sign-In With Google";
 const VADontHaveAcc = "Don't Have An Account? ";
 const VAContinue = "Continue as a Guest";
-
+const VALogout = "Logout";
 // -- Signup Screen Text
 const String VASignUPTitle = "Get on Board!";
 const String VASignUpSubtitle =
@@ -61,3 +61,22 @@ const String VANext = "Next";
 const String VAOTPTittle = "CO\nDE";
 const String VAOTPSubtitle = "Verification";
 const String VAOTPMessage = "Enter the verication code sent at ";
+
+// ---Profile Screen -Text
+const String VAProfile = "Profile";
+const String VAEditProfile = "Edit Profile";
+const String VALogoutDialogHeading = "Logout";
+const String VAProfileHeading = "Julia Chris";
+const String VAProfileSubHeading = "arctb@visit-amhara.com";
+
+// Menu
+const String VAMenu5 = VALogout;
+const String VAMenu1 = "Settings";
+const String VAMenu4 = "Information";
+const String VAMenu2 = "Billing Details";
+const String VAMenu3 = "User Management";
+
+// User Profile Screen -Text
+const String VADelete = "Delete";
+const String VAJoined = "Joined";
+const String VAJoinedAt = " 31 October 2022 ";

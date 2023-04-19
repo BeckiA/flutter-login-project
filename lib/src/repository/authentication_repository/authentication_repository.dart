@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/screens/on_boarding_screen/on_boarding_screen.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -37,9 +38,15 @@ class AuthenticationRepository extends GetxController {
         },
         verificationFailed: (e) {
           if (e.code == 'Invalid-phone-number') {
-            Get.snackbar('Error', 'The provided phone number is not valid.');
+            Get.snackbar('Error', 'The provided phone number is not valid.',
+                snackPosition: SnackPosition.BOTTOM,
+                backgroundColor: Colors.redAccent.withOpacity(0.1),
+                colorText: Colors.red);
           } else {
-            Get.snackbar('Error', 'Something went wrong. Try again');
+            Get.snackbar('Error', 'Something went wrong. Try again',
+                snackPosition: SnackPosition.BOTTOM,
+                backgroundColor: Colors.redAccent.withOpacity(0.1),
+                colorText: Colors.red);
           }
         },
         codeSent: (verificationId, forceResendingToken) {
@@ -68,10 +75,19 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+      Get.snackbar(
+          "Failed to Signup", "'FIREBASE AUTH EXCEPTION - ${ex.message}'",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.redAccent.withOpacity(0.1),
+          colorText: Colors.red);
       throw ex;
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
       print('EXCEPTION -${ex.message}');
+      Get.snackbar("Failed to signup", 'EXCEPTION -${ex.message}',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.redAccent.withOpacity(0.1),
+          colorText: Colors.red);
       // Write the error code with snackbars here using Get.Snackbars("Message here more on screen shots")
       throw ex;
     }
