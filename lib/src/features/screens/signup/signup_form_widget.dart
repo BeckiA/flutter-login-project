@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/features/controllers/signup_controllers.dart';
 import 'package:login_app/src/features/model/user_model.dart';
 
+import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
 import '../../../constants/text_strings.dart';
 import '../forget_password/forget_password_otp/forgot_password_otp_screen.dart';
@@ -18,10 +21,15 @@ class _SignUpFormState extends State<SignUpForm> {
   void initState() {
     super.initState();
     _formKey = GlobalKey<FormState>();
+    // final TextEditingController phoneController = PhoneFieldEditingController();
   }
 
+  bool _obscureText = true;
+  TextEditingController _phoneController = TextEditingController();
+  
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
+    String phoneNumberValue = controller.phoneNo.text;
 
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.0),
@@ -35,7 +43,7 @@ class _SignUpFormState extends State<SignUpForm> {
               style: TextStyle(fontSize: 16.0),
               decoration: const InputDecoration(
                 label: Text(VAFullName),
-                prefixIcon: Icon(Icons.person_outline_rounded),
+                prefixIcon: Icon(LineAwesomeIcons.user),
               ),
             ),
             const SizedBox(
@@ -46,34 +54,63 @@ class _SignUpFormState extends State<SignUpForm> {
               style: TextStyle(fontSize: 16.0),
               decoration: const InputDecoration(
                 label: Text(VAEmail),
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: Icon(LineAwesomeIcons.envelope),
               ),
             ),
             const SizedBox(
               height: 20.0,
             ),
-            TextFormField(
-              controller: controller.phoneNo,
-              style: TextStyle(fontSize: 16.0),
-              decoration: const InputDecoration(
-                label: Text(VAPhoneNo),
-                prefixIcon: Icon(Icons.phone),
-              ),
-            ),
+            Theme(
+                data: Theme.of(context).copyWith(
+                    textTheme: Theme.of(context).textTheme.copyWith(
+                          subtitle1:
+                              TextStyle(fontSize: 16), // change font size here
+                        )),
+                child: IntlPhoneField(
+                  autovalidateMode: AutovalidateMode.disabled,
+                  style: TextStyle(fontSize: 16.0),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100)),
+                      label: Text(VAPhoneNo),
+                      prefixIconColor: VAPrimaryColor,
+                      counterText: "",
+                      contentPadding: const EdgeInsets.symmetric(vertical: 2),
+                      floatingLabelStyle: TextStyle(color: VAPrimaryColor),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(100),
+                          borderSide:
+                              BorderSide(width: 2, color: VAPrimaryColor))),
+                  initialCountryCode: "ET",
+                  onChanged: (phone) {
+                    print(phone.completeNumber);
+                    phoneNumberValue = phone.completeNumber;
+                  },
+                )),
             const SizedBox(
               height: 20.0,
             ),
             TextFormField(
-              // keyboardAppearance: ,
+              obscureText: _obscureText,
               controller: controller.password,
               style: TextStyle(fontSize: 16.0),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 label: Text(VAPassword),
-                prefixIcon: Icon(Icons.key_outlined),
+                prefixIcon: Icon(LineAwesomeIcons.key),
+                suffix: IconButton(
+                  icon: _obscureText
+                      ? Icon(LineAwesomeIcons.eye)
+                      : Icon(LineAwesomeIcons.eye_slash),
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                ),
               ),
             ),
             const SizedBox(
-              height: 10.0,
+              height: 15.0,
             ),
             SizedBox(
               width: double.infinity,
@@ -89,7 +126,7 @@ class _SignUpFormState extends State<SignUpForm> {
                         email: controller.email.text.trim(),
                         password: controller.password.text.trim(),
                         fullName: controller.fullName.text.trim(),
-                        phoneNo: controller.phoneNo.text.trim());
+                        phoneNo: phoneNumberValue.trim());
 
                     SignUpController.instance.createUser(user);
                   }

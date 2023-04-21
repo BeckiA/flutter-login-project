@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/features/controllers/profile_controller.dart';
 import 'package:login_app/src/features/model/user_model.dart';
@@ -10,12 +11,19 @@ import '../../../constants/image_strings.dart';
 import '../../../constants/sizes.dart';
 import '../../../constants/text_strings.dart';
 
-class UpdateProfileScreen extends StatelessWidget {
+class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
 
   @override
+  State<UpdateProfileScreen> createState() => _UpdateProfileScreenState();
+}
+
+class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
+  bool _obscureText = true;
+  @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProfileController());
+
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -85,8 +93,7 @@ class UpdateProfileScreen extends StatelessWidget {
                                       style: TextStyle(fontSize: 16.0),
                                       decoration: const InputDecoration(
                                         label: Text(VAFullName),
-                                        prefixIcon:
-                                            Icon(Icons.person_outline_rounded),
+                                        prefixIcon: Icon(LineAwesomeIcons.user),
                                       ),
                                     ),
                                     const SizedBox(
@@ -97,29 +104,72 @@ class UpdateProfileScreen extends StatelessWidget {
                                       style: TextStyle(fontSize: 16.0),
                                       decoration: const InputDecoration(
                                         label: Text(VAEmail),
-                                        prefixIcon: Icon(Icons.email_outlined),
+                                        prefixIcon:
+                                            Icon(LineAwesomeIcons.envelope),
                                       ),
                                     ),
                                     const SizedBox(
                                       height: 20.0,
                                     ),
-                                    TextFormField(
-                                      controller: phoneNo,
-                                      style: TextStyle(fontSize: 16.0),
-                                      decoration: const InputDecoration(
-                                        label: Text(VAPhoneNo),
-                                        prefixIcon: Icon(Icons.phone),
-                                      ),
-                                    ),
+                                    Theme(
+                                        data: Theme.of(context).copyWith(
+                                            textTheme: Theme.of(context)
+                                                .textTheme
+                                                .copyWith(
+                                                  subtitle1: TextStyle(
+                                                      fontSize:
+                                                          16), // change font size here
+                                                )),
+                                        child: IntlPhoneField(
+                                          autovalidateMode:
+                                              AutovalidateMode.disabled,
+                                          style: TextStyle(fontSize: 16.0),
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          100)),
+                                              label: Text(VAPhoneNo),
+                                              prefixIconColor: VAPrimaryColor,
+                                              counterText: "",
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 2),
+                                              floatingLabelStyle: TextStyle(
+                                                  color: VAPrimaryColor),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          100),
+                                                  borderSide: BorderSide(
+                                                      width: 2,
+                                                      color: VAPrimaryColor))),
+                                          initialCountryCode: 'ET',
+                                          onChanged: (phone) {
+                                            print(phone.completeNumber);
+                                            phoneNo.text = phone.completeNumber;
+                                          },
+                                        )),
                                     const SizedBox(
                                       height: 20.0,
                                     ),
                                     TextFormField(
+                                      obscureText: _obscureText,
                                       controller: password,
                                       style: TextStyle(fontSize: 16.0),
-                                      decoration: const InputDecoration(
+                                      decoration: InputDecoration(
                                         label: Text(VAPassword),
-                                        prefixIcon: Icon(Icons.key_outlined),
+                                        prefixIcon: Icon(LineAwesomeIcons.key),
+                                        suffix: IconButton(
+                                          icon: Icon(_obscureText
+                                              ? LineAwesomeIcons.eye
+                                              : LineAwesomeIcons.eye_slash),
+                                          onPressed: () {
+                                            setState(() {
+                                              _obscureText = !_obscureText;
+                                            });
+                                          },
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(

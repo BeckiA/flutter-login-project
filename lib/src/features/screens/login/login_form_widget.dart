@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
@@ -7,11 +8,17 @@ import '../../../constants/text_strings.dart';
 import '../forget_password/forget_password_options/forget_password_bottomsheet.dart';
 import '../forget_password/forget_password_options/forget_password_widget.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     super.key,
   });
 
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -24,7 +31,7 @@ class LoginForm extends StatelessWidget {
             TextFormField(
               style: TextStyle(fontSize: 16.0),
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person_outline_outlined),
+                prefixIcon: Icon(LineAwesomeIcons.user),
                 labelText: VAEmail,
                 hintText: VAEmail,
               ),
@@ -33,14 +40,22 @@ class LoginForm extends StatelessWidget {
               height: VAFormHeight - 20,
             ),
             TextFormField(
+              obscureText: _obscureText,
               style: TextStyle(fontSize: 16.0),
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.key_outlined),
-                labelText: VAPassword,
-                hintText: VAPassword,
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.remove_red_eye_sharp),
-                  onPressed: null,
+                label: Text(VAPassword),
+                prefixIcon: Icon(LineAwesomeIcons.key),
+                suffix: IconButton(
+                  icon:
+                      // ignore: dead_code
+                      _obscureText
+                          ? Icon(LineAwesomeIcons.eye)
+                          : Icon(LineAwesomeIcons.eye_slash),
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
                 ),
               ),
             ),

@@ -6,6 +6,7 @@ import 'package:login_app/src/features/screens/login/login_screen.dart';
 import '../../../constants/image_strings.dart';
 import '../../../constants/sizes.dart';
 import '../../../constants/text_strings.dart';
+import '../../controllers/signup_controllers.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({
@@ -14,6 +15,8 @@ class SignUpFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
+
     return Column(
       children: [
         const Text("OR"),
@@ -23,7 +26,9 @@ class SignUpFormWidget extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: OutlinedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                controller.signInWithGoogle();
+              },
               icon: const Image(
                 image: AssetImage(VALoginImage),
                 width: 20,
