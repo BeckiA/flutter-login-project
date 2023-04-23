@@ -33,7 +33,7 @@ class AuthenticationRepository extends GetxController {
   Future<void> PhoneAuthentication(String phoneNo) async {
     await _auth.verifyPhoneNumber(
         phoneNumber: phoneNo,
-        verificationCompleted: (credential) async {
+        verificationCompleted: (PhoneAuthCredential credential) async {
           await _auth.signInWithCredential(credential);
         },
         verificationFailed: (e) {
@@ -75,19 +75,10 @@ class AuthenticationRepository extends GetxController {
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
-      Get.snackbar(
-          "Failed to Signup", "'FIREBASE AUTH EXCEPTION - ${ex.message}'",
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.redAccent.withOpacity(0.1),
-          colorText: Colors.red);
       throw ex;
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
       print('EXCEPTION -${ex.message}');
-      Get.snackbar("Failed to signup", 'EXCEPTION -${ex.message}',
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.redAccent.withOpacity(0.1),
-          colorText: Colors.red);
       // Write the error code with snackbars here using Get.Snackbars("Message here more on screen shots")
       throw ex;
     }

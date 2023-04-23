@@ -25,12 +25,11 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   bool _obscureText = true;
-  TextEditingController _phoneController = TextEditingController();
-  
+  // TextEditingController _phoneController = TextEditingController();
+  // replace with your desired initial value
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
     String phoneNumberValue = controller.phoneNo.text;
-
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.0),
       child: Form(

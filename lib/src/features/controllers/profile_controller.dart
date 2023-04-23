@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:login_app/src/repository/user_repository/user_repository.dart';
@@ -9,13 +10,14 @@ class ProfileController extends GetxController {
 
   final _authRepo = Get.put(AuthenticationRepository());
   final _userRepo = Get.put(UserRepository());
+  final _auth = FirebaseAuth.instance;
   //Step 3 - Get User Email and pass to userRepository to fetch user record
   getUserData() {
-    final phone = _authRepo.firebaseUser.value!.phoneNumber;
-    print(phone);
-    if (phone != null) {
-      print(_userRepo.getUserDetails(phone));
-      return _userRepo.getUserDetails(phone);
+    final email = _authRepo.firebaseUser.value!.email;
+    print(email);
+    if (email != null) {
+      print(_userRepo.getUserDetails(email));
+      return _userRepo.getUserDetails(email);
     } else {
       Get.snackbar("Error", "Login to continue");
     }
@@ -27,5 +29,6 @@ class ProfileController extends GetxController {
 
   deleteRecord(UserModel user) async {
     await _userRepo.deleteUserRecord(user);
+    await _auth.signOut();
   }
 }

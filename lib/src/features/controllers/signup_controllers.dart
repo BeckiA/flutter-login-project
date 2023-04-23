@@ -34,16 +34,32 @@ class SignUpController extends GetxController {
     }
   }
 
+  Future<bool> isUserExist(String email) async {
+    var query = await FirebaseFirestore.instance
+        .collection('Users')
+        .where('Email', isEqualTo: email)
+        .get();
+    Get.snackbar("Error,Failed to Login",
+        "User already Exists, try another email please",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.redAccent.withOpacity(0.1),
+        colorText: Colors.red);
+    return query.docs.isNotEmpty;
+  }
+
   Future<void> createUser(UserModel user) async {
     await userRepo.createUser(user);
-    phoneAuthentication(user.phoneNo);
-    Get.to(() => OTPScreen());
+    // phoneAuthentication(user.phoneNo);
+    if (true) {
+      isUserExist(user.email);
+    }
+    registerUser(user.email, user.password);
   }
 
   void phoneAuthentication(String phoneNo) {
     AuthenticationRepository.instance.PhoneAuthentication(phoneNo);
     print("Your Phone Number is${phoneNo}");
-    // Get.to(() => OTPScreen());
+    Get.to(() => OTPScreen());
   }
 
   signInWithGoogle() async {
