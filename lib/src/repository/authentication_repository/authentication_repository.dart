@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:login_app/src/features/screens/on_boarding_screen/on_boarding_screen.dart';
+import 'package:login_app/src/features/authentication/controllers/screens/on_boarding_screen/on_boarding_screen.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:login_app/src/features/screens/login/login_screen.dart';
-import 'package:login_app/src/features/screens/welcome_screen/welcome_screen.dart';
+import 'package:login_app/src/features/authentication/controllers/screens/login/login_screen.dart';
+import 'package:login_app/src/features/authentication/controllers/screens/welcome_screen/welcome_screen.dart';
 import 'package:login_app/src/repository/exceptions/signup_email_password_failure.dart';
 
 class AuthenticationRepository extends GetxController {
