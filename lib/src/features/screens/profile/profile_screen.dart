@@ -6,13 +6,14 @@ import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/constants/text_strings.dart';
+import 'package:login_app/src/features/controllers/profile_controller.dart';
 import 'package:login_app/src/features/screens/profile/update_profile_screen.dart';
 
 import '../../../repository/authentication_repository/authentication_repository.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
+  ProfileScreen({super.key});
+  final profileController = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
@@ -66,11 +67,11 @@ class ProfileScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                VAProfileHeading,
+                ProfileController.instance.displayName,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               Text(
-                VAProfileSubHeading,
+                ProfileController.instance.displayEmail,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(

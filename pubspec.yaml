@@ -56,10 +56,10 @@ dev_dependencies:
 flutter_native_splash:
   color: "#000000"
   color_dark: "#000000"
-  image: assets/images/login-images/visit-amhara-logo.png
+  image: assets/logo/visit_amhara_logo.jpg
   image_dark: assets/images/login-images/visit-amhara-logo.png
   android_12:
-    image: assets/images/login-images/visit-amhara-logo.png
+    image: assets/logo/visit_amhara_logo.jpg
     icon_background_color: "#000000"
     image_dark: assets/images/login-images/visit-amhara-logo.png
     icon_background_color_dark: "#000000"

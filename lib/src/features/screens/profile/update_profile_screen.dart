@@ -110,45 +110,34 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                     const SizedBox(
                                       height: 20.0,
                                     ),
+
                                     Theme(
-                                        data: Theme.of(context).copyWith(
-                                            textTheme: Theme.of(context)
-                                                .textTheme
-                                                .copyWith(
-                                                  subtitle1: TextStyle(
-                                                      fontSize:
-                                                          16), // change font size here
-                                                )),
-                                        child: IntlPhoneField(
-                                          autovalidateMode:
-                                              AutovalidateMode.disabled,
-                                          style: TextStyle(fontSize: 16.0),
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100)),
-                                              label: Text(VAPhoneNo),
-                                              prefixIconColor: VAPrimaryColor,
-                                              counterText: "",
-                                              contentPadding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 2),
-                                              floatingLabelStyle: TextStyle(
-                                                  color: VAPrimaryColor),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100),
-                                                  borderSide: BorderSide(
-                                                      width: 2,
-                                                      color: VAPrimaryColor))),
-                                          initialCountryCode: 'ET',
-                                          onChanged: (phone) {
-                                            print(phone.completeNumber);
-                                            phoneNo.text = phone.completeNumber;
-                                          },
-                                        )),
+                                      data: Theme.of(context).copyWith(
+                                        textTheme: Theme.of(context)
+                                            .textTheme
+                                            .copyWith(
+                                              // ignore: deprecated_member_use
+                                              subtitle1: TextStyle(
+                                                  fontSize: 16,
+                                                  color: VASeconsdaryColor),
+                                              // change font size here
+                                            ),
+                                      ),
+                                      child: IntlPhoneField(
+                                        style: TextStyle(fontSize: 16.0),
+                                        autovalidateMode:
+                                            AutovalidateMode.disabled,
+                                        decoration: InputDecoration(
+                                          label: Text(VAPhoneNo),
+                                          counterText: "",
+                                        ),
+                                        initialCountryCode: 'ET',
+                                        onChanged: (phone) {
+                                          print(phone.completeNumber);
+                                          phoneNo.text = phone.completeNumber;
+                                        },
+                                      ),
+                                    ),
                                     const SizedBox(
                                       height: 20.0,
                                     ),

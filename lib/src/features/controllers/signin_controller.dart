@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../screens/login/login_screen.dart';
 import 'package:login_app/src/features/screens/signup/signup_screen.dart';
 import '../screens/welcome_screen/welcome_screen.dart';
@@ -37,6 +38,18 @@ class SignInController extends GetxController {
         email: email,
         password: password,
       );
+
+      if (credential.user != null) {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        var querySnapshot = await FirebaseFirestore.instance
+            .collection('Users')
+            .where('Email', isEqualTo: email)
+            .get();
+        var name = querySnapshot.docs[0].data()["FullName"];
+        print(name);
+        prefs.setString("displayName", name.toString());
+        prefs.setString("displayEmail", credential.user!.email.toString());
+      }
 
       List<String> matchingEmails = await getUserEmails(email);
 

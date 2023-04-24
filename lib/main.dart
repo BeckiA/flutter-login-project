@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: VAAppTheme.lightTheme,
       darkTheme: VAAppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      // themeMode: ThemeMode.system,
       home: OnBoardingScreen(),
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.leftToRightWithFade,
