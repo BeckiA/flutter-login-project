@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/constants/text_strings.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/signup/signup_screen.dart';
 import 'package:login_app/src/features/authentication/controllers/signup_controllers.dart';
+
+import '../signup/signup_screen.dart';
 
 class LoginFooter extends StatelessWidget {
   const LoginFooter({

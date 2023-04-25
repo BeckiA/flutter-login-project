@@ -1,14 +1,13 @@
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/welcome_screen/welcome_screen.dart';
 import 'package:login_app/src/features/authentication/model/on_boarding_model.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/image_strings.dart';
 import '../../../constants/text_strings.dart';
+import '../screens/login/login_screen.dart';
 import '../screens/on_boarding_screen/on_boarding_page_widget.dart';
-import 'screens/login/login_screen.dart';
 
 class OnBoardingController extends GetxController {
   final controller = LiquidController();

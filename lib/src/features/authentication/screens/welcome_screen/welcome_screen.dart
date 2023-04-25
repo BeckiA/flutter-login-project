@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
-import '../../controllers/screens/profile/profile_screen.dart';
+import '../profile/profile_screen.dart';
 
 class Welcome extends StatelessWidget {
   @override

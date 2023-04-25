@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/on_boarding_screen/on_boarding_screen.dart';
 import '../src/utils/themes/themes.dart';
+import 'src/features/authentication/screens/on_boarding_screen/on_boarding_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

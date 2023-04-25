@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_app/src/features/core/screens/dashboard.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'screens/login/login_screen.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/signup/signup_screen.dart';
-import 'screens/welcome_screen/welcome_screen.dart';
+import '../screens/signup/signup_screen.dart';
+import '../screens/welcome_screen/welcome_screen.dart';
 
 class SignInController extends GetxController {
   // Create a reference to the Firestore collection where user data is stored
@@ -67,7 +67,7 @@ class SignInController extends GetxController {
         final credentialEmail = credential.user!.email;
 
         if (matchingEmails[0] == credentialEmail) {
-          Get.to(() => Welcome());
+          Get.to(() => Dashboard());
         } else {
           Get.off(
             () => SignUp(),

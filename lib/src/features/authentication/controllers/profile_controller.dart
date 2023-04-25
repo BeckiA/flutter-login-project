@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/login/login_screen.dart';
 import 'package:login_app/src/features/authentication/model/user_model.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:login_app/src/repository/user_repository/user_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../screens/login/login_screen.dart';
 
 class ProfileController extends GetxController {
   static ProfileController get instance => Get.find();

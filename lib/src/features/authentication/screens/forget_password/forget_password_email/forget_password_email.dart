@@ -6,7 +6,7 @@ import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/constants/text_strings.dart';
 
-import '../../../controllers/screens/forget_password/forget_password_otp/forgot_password_otp_screen.dart';
+import '../forget_password_otp/forgot_password_otp_screen.dart';
 
 class ForgetPasswordEmailScreen extends StatelessWidget {
   @override

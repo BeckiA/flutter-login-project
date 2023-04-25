@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/signup/signup_screen.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/welcome_screen/welcome_screen.dart';
-
 import '../../features/authentication/model/user_model.dart';
+import '../../features/authentication/screens/signup/signup_screen.dart';
+import '../../features/authentication/screens/welcome_screen/welcome_screen.dart';
+import '../../features/core/screens/dashboard.dart';
 
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
@@ -33,7 +33,7 @@ class UserRepository extends GetxController {
                 colorText: Colors.green),
           );
 
-      Get.to(Welcome());
+      Get.to(Dashboard());
     }
   }
 

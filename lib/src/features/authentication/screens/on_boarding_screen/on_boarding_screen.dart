@@ -5,8 +5,9 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:login_app/src/constants/colors.dart';
-import 'package:login_app/src/features/authentication/controllers/on_boarding_controller.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../controllers/on_boarding_controller.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   OnBoardingScreen({super.key});

@@ -3,11 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:login_app/src/features/authentication/controllers/screens/forget_password/forget_password_otp/forgot_password_otp_screen.dart';
 import 'package:login_app/src/features/authentication/model/user_model.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:login_app/src/repository/user_repository/user_repository.dart';
 import 'package:firebase_database/firebase_database.dart';
+
+import '../screens/forget_password/forget_password_otp/forgot_password_otp_screen.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();

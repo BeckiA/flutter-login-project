@@ -5,8 +5,8 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../../constants/image_strings.dart';
 import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
-import '../../controllers/screens/login/login_screen.dart';
 import '../../controllers/signup_controllers.dart';
+import '../login/login_screen.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({

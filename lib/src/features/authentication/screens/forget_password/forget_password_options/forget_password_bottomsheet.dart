@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/constants/text_strings.dart';
-import '../../../controllers/screens/forget_password/forget_password_phone/forget_password_phone.dart';
 import '../forget_password_email/forget_password_email.dart';
+import '../forget_password_phone/forget_password_phone.dart';
 import 'forget_password_widget.dart';
 
 class ForgetPasswordScreen {
