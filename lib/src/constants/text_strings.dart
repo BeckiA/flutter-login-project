@@ -80,3 +80,12 @@ const String VAMenu3 = "User Management";
 const String VADelete = "Delete";
 const String VAJoined = "Joined";
 const String VAJoinedAt = " 31 October 2022 ";
+
+// Here The Dashboard---------Main App Starts Here------------------
+// Carousel Slider Texts
+const String VACarouselText1 = "Lalibella Rock Hewn Churches";
+const String VACarouselText2 = "Chamelot of Gondar";
+const String VACarouselText3 = "Semien National Parks";
+const String VACarouselText4 = "Lake Tana";
+const String VACarouselText5 = "Blue Nile Falls";
+const String VACarouselText6 = "Agew Horse Riding";

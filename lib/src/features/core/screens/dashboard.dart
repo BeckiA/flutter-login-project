@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_app/src/constants/sizes.dart';
-import '../models/dashboard_header_widgets.dart';
+import 'package:get/get.dart';
+import '../models/dashboard_header_widgets/dashboard_header_widgets.dart';
 
 class Dashboard extends StatelessWidget {
   @override
