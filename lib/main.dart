@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:login_app/src/features/core/screens/attraction_sites/attraction_sites.dart';
+import 'package:login_app/src/features/core/screens/main_screen.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
