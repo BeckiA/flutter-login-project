@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/attractions.dart';
 import '../../models/attraction_sites_grid/attraction_site_grid.dart';
-import '../../models/dashboard_header_widgets/dashboard_header_widgets.dart';
+import 'dashboard_header_widgets.dart';
 
 class Dashboard extends StatelessWidget {
   @override
