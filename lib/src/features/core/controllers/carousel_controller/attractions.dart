@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import '../../../constants/image_strings.dart';
+import '../../../../constants/image_strings.dart';
 
 class Attractions extends GetxController {
   static Attractions get instance => Get.find();

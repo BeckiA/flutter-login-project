@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/core/screens/main_screen.dart';
-import 'package:login_app/src/features/core/screens/navigation_screens/dashboard.dart';
+import 'package:login_app/src/features/core/screens/dashboard_screens/dashboard.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../screens/signup/signup_screen.dart';
 import '../screens/welcome_screen/welcome_screen.dart';

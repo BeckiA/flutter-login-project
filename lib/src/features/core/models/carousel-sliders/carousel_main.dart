@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/constants/colors.dart';
-import '../../controllers/carousel_controller/carousel_logics.dart';
+import '../../carousel_logics.dart';
 
 class CarouselWithIndicatorDemo extends StatefulWidget {
   @override

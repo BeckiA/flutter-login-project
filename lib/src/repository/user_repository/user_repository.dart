@@ -5,7 +5,7 @@ import 'package:login_app/src/features/core/screens/main_screen.dart';
 import '../../features/authentication/model/user_model.dart';
 import '../../features/authentication/screens/signup/signup_screen.dart';
 import '../../features/authentication/screens/welcome_screen/welcome_screen.dart';
-import '../../features/core/screens/navigation_screens/dashboard.dart';
+import '../../features/core/screens/dashboard_screens/dashboard.dart';
 
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();

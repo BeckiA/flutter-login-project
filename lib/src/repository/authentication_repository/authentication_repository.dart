@@ -9,7 +9,7 @@ import '../../features/authentication/screens/login/login_screen.dart';
 import '../../features/authentication/screens/on_boarding_screen/on_boarding_screen.dart';
 import '../../features/authentication/screens/welcome_screen/welcome_screen.dart';
 import '../../features/core/screens/main_screen.dart';
-import '../../features/core/screens/navigation_screens/dashboard.dart';
+import '../../features/core/screens/dashboard_screens/dashboard.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();

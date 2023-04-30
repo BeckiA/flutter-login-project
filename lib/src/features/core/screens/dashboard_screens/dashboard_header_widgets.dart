@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get/get.dart';
-import '../carousel-sliders/carousel_main.dart';
-import 'dashboard_icons/dashboard_icon_list.dart';
-import 'dashboard_icons/dashboard_icons_item.dart';
-import 'dashboard_profile/dashboard_profile.dart';
-import 'dashboard_searchbar/dashboard_searchbar.dart';
+import '../../models/carousel-sliders/carousel_main.dart';
+import '../../models/dashboard_header_widgets/dashboard_icons/dashboard_icon_list.dart';
+import '../../models/dashboard_header_widgets/dashboard_icons/dashboard_icons_item.dart';
+import '../../models/dashboard_header_widgets/dashboard_profile/dashboard_profile.dart';
+import '../../models/dashboard_header_widgets/dashboard_searchbar/dashboard_searchbar.dart';
 
 class DashboardHeader extends StatelessWidget {
   @override

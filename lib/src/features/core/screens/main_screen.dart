@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/constants/colors.dart';
-import 'navigation_screens/dashboard.dart';
+import 'dashboard_screens/dashboard.dart';
 import 'navigation_screens/favorites_screen.dart';
 import 'navigation_screens/iternary_screen.dart';
 import 'navigation_screens/profile_screen.dart';
