@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../controllers/attraction.dart';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 class AttractionScreen extends StatelessWidget {
   final String attractionTitle;
   final List<Attraction> attractions;
@@ -29,11 +26,18 @@ class AttractionScreen extends StatelessWidget {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                return Attraction(
-                  id: attractions[index].id,
-                  title: attractions[index].title,
-                  location: attractions[index].location,
-                  picture: attractions[index].picture,
+                return GestureDetector(
+                  onTap: () {},
+                  child: Attraction(
+                    id: attractions[index].id,
+                    title: attractions[index].title,
+                    location: attractions[index].location,
+                    picture: attractions[index].picture,
+                    description: attractions[index].description,
+                    categoryId: attractions[index].categoryId,
+                    latitude: attractions[index].latitude,
+                    longitude: attractions[index].longitude,
+                  ),
                 );
               },
             ),

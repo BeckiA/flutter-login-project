@@ -2,6 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+/* LIST OF TEXT and  COLORS */
+const VALTextColor = Color(0xFF073B4C);
+const VADTextColor = Color(0xFFd4a373);
+
 /* LIST OF COLORS */
 
 const VAPrimaryColor = Color(0xFFE5B80B);

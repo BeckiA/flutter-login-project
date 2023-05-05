@@ -6,7 +6,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import '../../controllers/atrractions_list.dart';
 import '../../controllers/attraction.dart';
-import '../../controllers/carousel_controller/attractions.dart';
+
+import '../../controllers/attractions.dart';
 import '../attraction_sites/attraction_screen.dart';
 
 class AttractionGrids extends StatelessWidget {

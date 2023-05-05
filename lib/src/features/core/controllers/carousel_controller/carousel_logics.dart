@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import '../../constants/image_strings.dart';
-import '../../constants/text_strings.dart';
+import '../../../../constants/image_strings.dart';
+import '../../../../constants/text_strings.dart';
 
 class CarouselLogic extends GetxController {
   static CarouselLogic get instance => Get.find();

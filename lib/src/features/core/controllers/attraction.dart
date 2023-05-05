@@ -1,29 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+// ignore: must_be_immutable
 class Attraction extends StatelessWidget {
   final String id;
   final String title;
   final String date = DateFormat('yyyy-MM-dd').format(DateTime.now());
   final String location;
   final String picture;
+  final String description;
+  final String categoryId;
+  final double latitude;
+  final double longitude;
+  bool isFavorite;
 
   Attraction({
-    Key? key,
     required this.id,
     required this.title,
     required this.location,
     required this.picture,
+    required this.description,
+    required this.categoryId,
+    required this.latitude,
+    required this.longitude,
+    this.isFavorite = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("Jesus is here");
+        Get.toNamed('/attraction-detail', arguments: {
+          'id': id,
+          'latitude': latitude,
+          'longitude': longitude,
+        });
       },
       child: Container(
         padding: EdgeInsets.all(20),
