@@ -19,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   final pages = [
     Dashboard(),
     Itrenary(),
-    Favorite(),
+    FavoritesScreen(),
     Profile(),
   ];
 

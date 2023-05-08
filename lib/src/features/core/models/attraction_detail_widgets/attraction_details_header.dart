@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
+import 'package:provider/provider.dart';
 import '../../../../constants/colors.dart';
 import '../../controllers/attraction.dart';
+import '../../controllers/navigation_menu_controllers/favorite_controller.dart';
 
 class AttractionsDetailHeader extends StatelessWidget {
   const AttractionsDetailHeader({
@@ -16,6 +18,7 @@ class AttractionsDetailHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get.put(FavoritesController());
     return Column(
       children: [
         Container(
@@ -49,11 +52,38 @@ class AttractionsDetailHeader extends StatelessWidget {
                       ],
                     ),
                     Container(
-                      child: Icon(
-                        LineAwesomeIcons.heart,
-                        size: 30,
+                      child: ChangeNotifierProvider<Attraction>(
+                        create: (context) => Attraction(
+                            categoryId: "",
+                            description: "",
+                            id: "",
+                            latitude: 0.0,
+                            location: "",
+                            longitude: 0.0,
+                            picture: "",
+                            title: "",
+                            isFavorite: false),
+                        child: Consumer<Attraction>(
+                          builder: (ctx, attract, _) {
+                            return GestureDetector(
+                              child: IconButton(
+                                onPressed: () {
+                                  attract.toggleFavoriteStatus();
+                                  print(attract.isFavorite);
+                                  attraction.isFavorite = attract.isFavorite;
+                                },
+                                icon: Icon(
+                                  attraction.isFavorite
+                                      ? LineAwesomeIcons.heart_1
+                                      : LineAwesomeIcons.heart,
+                                  size: 30,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 SizedBox(

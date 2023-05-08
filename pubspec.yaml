@@ -55,6 +55,7 @@ dependencies:
   latlng: ^1.0.0
   latlong2: ^0.8.1
   url_launcher: ^6.1.10
+  get_storage: ^2.1.1
   
 dev_dependencies:
   flutter_test:

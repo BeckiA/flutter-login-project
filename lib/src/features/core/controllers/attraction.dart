@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'navigation_menu_controllers/favorite_controller.dart';
 
 // ignore: must_be_immutable
-class Attraction extends StatelessWidget {
+class Attraction extends StatelessWidget with ChangeNotifier {
   final String id;
   final String title;
   final String date = DateFormat('yyyy-MM-dd').format(DateTime.now());
@@ -30,6 +32,23 @@ class Attraction extends StatelessWidget {
     required this.longitude,
     this.isFavorite = false,
   });
+
+  Future<void> _saveFavoriteStatus() async {
+    final box = GetStorage();
+    final favorites = box.read<List>('favorites') ?? [];
+    if (isFavorite) {
+      favorites.add(id);
+    } else {
+      favorites.remove(id);
+    }
+    await box.write('favorites', favorites);
+  }
+
+  void toggleFavoriteStatus() async {
+    isFavorite = !isFavorite;
+    await _saveFavoriteStatus();
+    notifyListeners();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,4 +138,6 @@ class Attraction extends StatelessWidget {
       ),
     );
   }
+
+  static fromJson(e) {}
 }
