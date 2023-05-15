@@ -50,3 +50,6 @@ const String VAGridImage6 =
     "assets/images/grid-images/amhara-people-s-museum.jpg";
 const String VAGridImage7 = "assets/images/grid-images/timket-festivity.jpg";
 const String VAGridImage8 = "assets/images/grid-images/ashendiye-festival.jpg";
+
+// Itinerary Image
+const String VAItrenaryImage = "assets/images/itinerary/broken-heart.png";

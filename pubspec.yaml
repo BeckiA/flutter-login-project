@@ -56,6 +56,9 @@ dependencies:
   latlong2: ^0.8.1
   url_launcher: ^6.1.10
   get_storage: ^2.1.1
+  sqflite: ^2.2.8+2
+  image_picker: ^0.8.7+5
+  google_fonts: ^4.0.4
   
 dev_dependencies:
   flutter_test:
@@ -96,6 +99,7 @@ flutter:
     - assets/images/on-boarding-images/
     - assets/images/carousel-slider-images/
     - assets/images/grid-images/
+    - assets/images/itinerary/
     
     
 

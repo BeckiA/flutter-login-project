@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/core/controllers/attraction.dart';
+import 'package:login_app/src/features/core/itinerary/screens/note_add_screen.dart';
+import 'package:login_app/src/features/core/itinerary/screens/note_edit_screen.dart';
+import 'package:login_app/src/features/core/itinerary/screens/note_view_screen.dart';
 import 'package:login_app/src/features/core/models/map_widgets/comments.dart';
 import 'package:login_app/src/features/core/models/map_widgets/nearby_hotels.dart';
 import 'package:login_app/src/features/core/models/map_widgets/nearby_restaurants.dart';
@@ -65,6 +68,18 @@ class MyApp extends StatelessWidget {
           name: '/weather-forecast-screen',
           page: () => WeatherScreen(),
         ),
+        GetPage(
+          name: '/note-view',
+          page: () => NoteViewScreen(),
+        ),
+        GetPage(
+          name: '/note-add',
+          page: () => NoteAddScreen(),
+        ),
+        GetPage(
+          name: '/note-edit',
+          page: () => NoteEditScreen(),
+        )
       ],
     );
   }

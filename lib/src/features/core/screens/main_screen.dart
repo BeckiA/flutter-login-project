@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/constants/colors.dart';
+import '../../authentication/screens/profile/profile_screen.dart';
+import '../itinerary/screens/note_list_screen.dart';
 import 'dashboard_screens/dashboard.dart';
 import 'navigation_screens/favorites_screen.dart';
-import 'navigation_screens/iternary_screen.dart';
-import 'navigation_screens/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,9 +18,9 @@ class _MainScreenState extends State<MainScreen> {
   var currentIndex = 0;
   final pages = [
     Dashboard(),
-    Itrenary(),
+    NoteListScreen(),
     FavoritesScreen(),
-    Profile(),
+    ProfileScreen(),
   ];
 
   void onTap(int index) {
@@ -33,8 +33,8 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-          unselectedFontSize: 5,
-          selectedFontSize: 5,
+          unselectedFontSize: 10,
+          selectedFontSize: 10,
           type: BottomNavigationBarType.fixed,
           onTap: onTap,
           currentIndex: currentIndex,
@@ -45,13 +45,29 @@ class _MainScreenState extends State<MainScreen> {
           elevation: 0,
           items: [
             BottomNavigationBarItem(
-                label: "Home", icon: Icon(LineAwesomeIcons.home)),
+                label: "Home",
+                icon: Icon(
+                  LineAwesomeIcons.home,
+                  size: 30,
+                )),
             BottomNavigationBarItem(
-                label: "Itrenary", icon: Icon(LineAwesomeIcons.plus_square)),
+                label: "Itrenary",
+                icon: Icon(
+                  LineAwesomeIcons.plus_square,
+                  size: 30,
+                )),
             BottomNavigationBarItem(
-                label: "Favorites", icon: Icon(LineAwesomeIcons.heart)),
+                label: "Favorites",
+                icon: Icon(
+                  LineAwesomeIcons.heart,
+                  size: 30,
+                )),
             BottomNavigationBarItem(
-                label: "Profile", icon: Icon(LineAwesomeIcons.user)),
+                label: "Profile",
+                icon: Icon(
+                  LineAwesomeIcons.user,
+                  size: 30,
+                )),
           ]),
     );
   }
