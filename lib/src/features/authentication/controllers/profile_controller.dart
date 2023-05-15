@@ -14,23 +14,23 @@ class ProfileController extends GetxController {
   final _userRepo = Get.put(UserRepository());
   final _auth = FirebaseAuth.instance;
   // USer Data via Shared Preferences
-  late var displayName = "";
-  late var displayEmail = "";
+  // late var displayName = "";
+  // late var displayEmail = "";
 
-  void onInit() {
-    getData();
-    super.onInit();
-  }
+  // void onInit() {
+  //   getData();
+  //   super.onInit();
+  // }
 
-  void getData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    displayName = prefs.getString('displayName').toString();
-    final displayNameObs = displayName != "" ? displayName.obs : Rx<String>("");
+  // void getData() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   displayName = prefs.getString('displayName').toString();
+  //   final displayNameObs = displayName != "" ? displayName.obs : Rx<String>("");
 
-    displayEmail = prefs.getString('displayEmail').toString();
-    final displayEmailObs =
-        displayEmail != "" ? displayEmail.obs : Rx<String>("");
-  }
+  //   displayEmail = prefs.getString('displayEmail').toString();
+  //   final displayEmailObs =
+  //       displayEmail != "" ? displayEmail.obs : Rx<String>("");
+  // }
 
   //Step 3 - Get User Email and pass to userRepository to fetch user record
   getUserData() {

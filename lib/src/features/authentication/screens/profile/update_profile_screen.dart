@@ -27,10 +27,12 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-              onPressed: () {}, icon: const Icon(LineAwesomeIcons.angle_left)),
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(LineAwesomeIcons.angle_left)),
           title: Text(
             VAEditProfile,
-            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
         body: SingleChildScrollView(

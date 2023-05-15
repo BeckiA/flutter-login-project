@@ -10,27 +10,32 @@ import 'package:login_app/src/features/authentication/controllers/profile_contro
 import 'package:login_app/src/features/authentication/screens/profile/update_profile_screen.dart';
 
 import '../../../../repository/authentication_repository/authentication_repository.dart';
+import '../../../../repository/user_repository/user_repository.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
   final profileController = Get.put(ProfileController());
+  final _authRepo = Get.put(AuthenticationRepository());
+  final _userRepo = Get.put(UserRepository());
+  late final String userName;
   @override
   Widget build(BuildContext context) {
-    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    // var iconColor = isDark ? VAPrimaryColor : VAAccentColor;
+    final userEmail = _authRepo.firebaseUser.value!.email as String;
+    Future<String> userNameInfo() async {
+      String userName = await _userRepo.getUsername(userEmail);
+      return userName;
+    }
+
+    userNameInfo().then((value) {
+      userName = value;
+      return userName;
+    });
+
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {}, icon: const Icon(LineAwesomeIcons.angle_left)),
         title: Text(
           VAProfile,
-          style: Theme.of(context).textTheme.headlineMedium,
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
-        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -67,11 +72,11 @@ class ProfileScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                ProfileController.instance.displayName,
+                userName,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               Text(
-                ProfileController.instance.displayEmail,
+                userEmail,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(
@@ -169,7 +174,7 @@ class ProfileMenuWidget extends StatelessWidget {
         child: Icon(
           icon,
           // size: 18.0,
-          color: VAAccentColor,
+          color: isDark ? VAAccentColor : Colors.white,
         ),
       ),
       title: Text(

@@ -22,7 +22,7 @@ const String VAForgotPassword =
     "assets/images/forgot-password/forgot-password.png";
 
 // Profile Image
-const String VAProfileImage = "assets/images/profile/profile-picture.jpg";
+const String VAProfileImage = "assets/images/profile/user-icon.png";
 
 // Here The Dashboard---------Main App Starts Here------------------
 

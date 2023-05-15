@@ -69,6 +69,24 @@ class UserRepository extends GetxController {
     await documentSnapshot.reference.update(user.toJson());
   }
 
+  Future<String> getUsername(String email) async {
+    final snapshot =
+        await _db.collection("Users").where("Email", isEqualTo: email).get();
+
+    if (snapshot.docs.isEmpty) {
+      throw Exception("No user found with this email $email");
+    }
+
+    if (snapshot.docs.length > 1) {
+      throw Exception("Multiple users found with this email $email");
+    }
+
+    final userData = snapshot.docs.single.data();
+    final username = userData['FullName'];
+
+    return username;
+  }
+
   Future<void> deleteUserRecord(UserModel user) async {
     var querySnapshot = await _db
         .collection("Users")
