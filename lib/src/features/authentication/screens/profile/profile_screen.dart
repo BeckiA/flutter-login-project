@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/image_strings.dart';
@@ -8,29 +11,34 @@ import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/constants/text_strings.dart';
 import 'package:login_app/src/features/authentication/controllers/profile_controller.dart';
 import 'package:login_app/src/features/authentication/screens/profile/update_profile_screen.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../../../repository/authentication_repository/authentication_repository.dart';
 import '../../../../repository/user_repository/user_repository.dart';
+import 'Image_picker.dart';
+import 'package:path/path.dart' as p;
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   final profileController = Get.put(ProfileController());
+
   final _authRepo = Get.put(AuthenticationRepository());
+
   final _userRepo = Get.put(UserRepository());
-  late final String userName;
+
   @override
   Widget build(BuildContext context) {
+    Get.put(ImagePickerWidget());
+
     final userEmail = _authRepo.firebaseUser.value!.email as String;
-    Future<String> userNameInfo() async {
-      String userName = await _userRepo.getUsername(userEmail);
-      return userName;
-    }
-
-    userNameInfo().then((value) {
-      userName = value;
-      return userName;
-    });
-
+    profileController.getUserNameData(userEmail);
+    final pickerInstance = ImagePickerWidget.instance;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -47,32 +55,38 @@ class ProfileScreen extends StatelessWidget {
                   width: 120,
                   height: 120,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: const Image(image: AssetImage(VAProfileImage)),
-                  ),
+                      borderRadius: BorderRadius.circular(100),
+                      child: pickerInstance.displayPickedImage()
+                      // child: const Image(image: AssetImage(VAProfileImage)),
+                      ),
                 ),
                 Positioned(
                   bottom: 0,
                   right: 0,
-                  child: Container(
-                    width: 35,
-                    height: 35,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: VAPrimaryColor),
-                    child: const Icon(
-                      LineAwesomeIcons.alternate_pencil,
-                      color: Colors.black,
-                      size: 20,
+                  child: GestureDetector(
+                    onTap: () {
+                      pickerInstance.getImage();
+                    },
+                    child: Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: VAPrimaryColor),
+                      child: const Icon(
+                        LineAwesomeIcons.camera,
+                        color: Colors.black,
+                        size: 20,
+                      ),
                     ),
                   ),
-                )
+                ),
               ]),
               const SizedBox(
                 height: 10,
               ),
               Text(
-                userName,
+                profileController.userName.value,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               Text(

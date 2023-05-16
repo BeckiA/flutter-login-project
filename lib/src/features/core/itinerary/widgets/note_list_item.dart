@@ -35,7 +35,7 @@ class ListItem extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: BoxDecoration(
-            color: isDark ? Colors.black87 : Colors.white,
+            color: isDark ? Colors.black87 : Colors.white30,
             // boxShadow: shadow,
             borderRadius: BorderRadius.circular(15.0),
             // border: Border.all(color: grey, width: 1.0),

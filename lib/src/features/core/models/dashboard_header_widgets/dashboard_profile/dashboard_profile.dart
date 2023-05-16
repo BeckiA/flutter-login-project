@@ -1,36 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:login_app/src/features/authentication/screens/profile/Image_picker.dart';
 
 import '../../../../../constants/image_strings.dart';
+import '../../../../../repository/authentication_repository/authentication_repository.dart';
+import '../../../../authentication/controllers/profile_controller.dart';
 
 class DashboardProfile extends StatelessWidget {
-  const DashboardProfile({
-    super.key,
-  });
+  final profileController = Get.put(ProfileController());
 
+  final _authRepo = Get.put(AuthenticationRepository());
   @override
   Widget build(BuildContext context) {
+    final pickerInstance = ImagePickerWidget.instance;
+    final userEmail = _authRepo.firebaseUser.value!.email as String;
+    profileController.getUserNameData(userEmail);
+    final userName = profileController.userName.value;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(children: [
-          GestureDetector(
-            onTap: () {},
-            child: SizedBox(
-              width: 50,
-              height: 50,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: const Image(image: AssetImage(VAProfileImage)),
+        Expanded(
+          child: Row(children: [
+            GestureDetector(
+              onTap: () {},
+              child: SizedBox(
+                width: 50,
+                height: 50,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: pickerInstance.displayPickedImage(),
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 10.0,
-          ),
-          Text("Hi, Name"),
-        ]),
-        IconButton(onPressed: () {}, icon: Icon(LineAwesomeIcons.bars))
+            SizedBox(
+              width: 10.0,
+            ),
+            Expanded(
+              child: Text(
+                "Welcome, $userName",
+              ),
+            ),
+          ]),
+        ),
+        Card(
+            child:
+                IconButton(onPressed: () {}, icon: Icon(LineAwesomeIcons.bell)))
       ],
     );
   }

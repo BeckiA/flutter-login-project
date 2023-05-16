@@ -13,7 +13,7 @@ class ProfileController extends GetxController {
   final _authRepo = Get.put(AuthenticationRepository());
   final _userRepo = Get.put(UserRepository());
   final _auth = FirebaseAuth.instance;
-
+  Rx<String> userName = ''.obs;
   //Step 3 - Get User Email and pass to userRepository to fetch user record
   getUserData() {
     final email = _authRepo.firebaseUser.value!.email;
@@ -34,5 +34,18 @@ class ProfileController extends GetxController {
     await _userRepo.deleteUserRecord(user);
     await _auth.signOut();
     Get.to(LoginScreen());
+  }
+
+  getUserNameData(String email) {
+    Future<String> userNameInfo() async {
+      String userName = await _userRepo.getUsername(email);
+      return userName;
+    }
+
+    userNameInfo().then((value) {
+      userName.value = value;
+
+      return userName.value;
+    });
   }
 }

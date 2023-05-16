@@ -4,6 +4,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/features/authentication/controllers/profile_controller.dart';
 import 'package:login_app/src/features/authentication/model/user_model.dart';
+import 'package:login_app/src/features/authentication/screens/profile/Image_picker.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../constants/image_strings.dart';
@@ -23,6 +24,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ProfileController());
+    final pickerInstance = ImagePickerWidget.instance;
 
     return Scaffold(
         appBar: AppBar(
@@ -61,24 +63,26 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                 width: 120,
                                 height: 120,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(100),
-                                  child: const Image(
-                                      image: AssetImage(VAProfileImage)),
-                                ),
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: pickerInstance.displayPickedImage()),
                               ),
                               Positioned(
                                 bottom: 0,
                                 right: 0,
-                                child: Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(100),
-                                      color: VAPrimaryColor),
-                                  child: const Icon(
-                                    LineAwesomeIcons.camera,
-                                    color: Colors.black,
-                                    size: 20,
+                                child: GestureDetector(
+                                  onTap: () => pickerInstance.getImage(),
+                                  child: Container(
+                                    width: 35,
+                                    height: 35,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(100),
+                                        color: VAPrimaryColor),
+                                    child: const Icon(
+                                      LineAwesomeIcons.alternate_pencil,
+                                      color: Colors.black,
+                                      size: 20,
+                                    ),
                                   ),
                                 ),
                               )

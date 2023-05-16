@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:get/get.dart';
+import '../../../authentication/screens/profile/Image_picker.dart';
 import '../../models/carousel-sliders/carousel_main.dart';
 import '../../models/dashboard_header_widgets/dashboard_icons/dashboard_icon_list.dart';
 import '../../models/dashboard_header_widgets/dashboard_icons/dashboard_icons_item.dart';
@@ -12,7 +13,7 @@ class DashboardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(IconsItem());
     Get.put(CarouselWithIndicatorDemo());
-
+    Get.put(ImagePickerWidget());
     return Column(
       children: [
         DashboardProfile(),

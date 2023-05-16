@@ -1,21 +1,24 @@
-import 'dart:io';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ImagePickerController extends GetxController {
-  static ImagePickerController get instance => Get.find();
-  Future<File?> pickImage(ImageSource source) async {
-    final ImagePicker _picker = ImagePicker();
-    final pickedFile = await _picker.getImage(source: source);
+  final imageFile = ''.obs;
 
-    if (pickedFile != null) {
-      // Save the image to a local file
-      final File imageFile = File(pickedFile.path);
-      return imageFile;
-    }
+  Future<void> setImageFile(String imagePath) async {
+    imageFile.value = imagePath;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('imagePath', imagePath);
+  }
 
-    return null;
+  @override
+  void onInit() {
+    super.onInit();
+    loadImageFile();
+  }
+
+  Future<void> loadImageFile() async {
+    final prefs = await SharedPreferences.getInstance();
+    final imagePath = prefs.getString('imagePath') ?? '';
+    imageFile.value = imagePath;
   }
 }

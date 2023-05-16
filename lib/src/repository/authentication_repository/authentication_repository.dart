@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:login_app/src/repository/exceptions/signup_email_password_failure.dart';
@@ -87,7 +88,14 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
+// Function to clear shared preferences data
+  void clearSharedPreferences() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+  }
+
   Future<void> logout() async {
+    clearSharedPreferences();
     await _auth.signOut();
     Get.to(LoginScreen());
   }

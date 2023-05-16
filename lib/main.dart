@@ -4,6 +4,7 @@ import 'package:login_app/src/features/core/controllers/attraction.dart';
 import 'package:login_app/src/features/core/itinerary/screens/note_add_screen.dart';
 import 'package:login_app/src/features/core/itinerary/screens/note_edit_screen.dart';
 import 'package:login_app/src/features/core/itinerary/screens/note_view_screen.dart';
+import 'package:login_app/src/features/core/models/dashboard_header_widgets/dashboard_profile/dashboard_profile.dart';
 import 'package:login_app/src/features/core/models/map_widgets/comments.dart';
 import 'package:login_app/src/features/core/models/map_widgets/nearby_hotels.dart';
 import 'package:login_app/src/features/core/models/map_widgets/nearby_restaurants.dart';
