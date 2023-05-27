@@ -7,6 +7,7 @@ import 'package:login_app/src/constants/colors.dart';
 import '../../controllers/atrractions_list.dart';
 import '../../controllers/attraction.dart';
 import '../../controllers/navigation_menu_controllers/favorite_controller.dart';
+import '../../controllers/no_favorites_screen_widget.dart';
 
 class FavoritesScreen extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class FavoritesScreen extends StatelessWidget {
           title: Text('Favorites'),
         ),
         body: favorites.isEmpty
-            ? Center()
+            ? NoFavorites()
             : ListView.builder(
                 itemCount: favorites.length,
                 itemBuilder: (context, i) {

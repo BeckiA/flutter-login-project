@@ -123,7 +123,7 @@ class NoteListScreen extends StatelessWidget {
     }
   }
 
-  Widget noNotesUI(BuildContext context) {
+  noNotesUI(BuildContext context) {
     return ListView(
       children: [
         header(),

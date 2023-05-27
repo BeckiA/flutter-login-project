@@ -21,15 +21,34 @@ class AttractionsDetailHeader extends StatelessWidget {
     // Get.put(FavoritesController());
     return Column(
       children: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.4,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(attraction.picture), fit: BoxFit.cover),
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(25),
-                bottomRight: Radius.circular(25)),
-          ),
+        Stack(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.4,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(attraction.picture), fit: BoxFit.cover),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25)),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircleAvatar(
+                  radius: 26,
+                  backgroundColor: brightnessDark ? VADTextColor : VALTextColor,
+                  child: Container(
+                    child: IconButton(onPressed: () => Get.back(), icon: Icon(LineAwesomeIcons.arrow_left)),
+                  ),
+                ),
+                IconButton(onPressed: () {
+                  
+                }, icon: Icon(LineAwesomeIcons.heart))
+              ],
+            )
+          ],
         ),
         Padding(
             padding: const EdgeInsets.all(20.0),

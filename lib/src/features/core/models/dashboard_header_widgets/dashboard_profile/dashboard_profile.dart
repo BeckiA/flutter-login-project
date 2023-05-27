@@ -8,16 +8,26 @@ import '../../../../../constants/image_strings.dart';
 import '../../../../../repository/authentication_repository/authentication_repository.dart';
 import '../../../../authentication/controllers/profile_controller.dart';
 
-class DashboardProfile extends StatelessWidget {
+class DashboardProfile extends StatefulWidget {
+  @override
+  State<DashboardProfile> createState() => _DashboardProfileState();
+}
+
+class _DashboardProfileState extends State<DashboardProfile> {
   final profileController = Get.put(ProfileController());
 
   final _authRepo = Get.put(AuthenticationRepository());
+
   @override
   Widget build(BuildContext context) {
     final pickerInstance = ImagePickerWidget.instance;
     final userEmail = _authRepo.firebaseUser.value!.email as String;
+    String userName = '';
     profileController.getUserNameData(userEmail);
-    final userName = profileController.userName.value;
+    setState(() {
+      userName = profileController.userName.value;
+    });
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
