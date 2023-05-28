@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+
+import '../../../screens/dashboard_screens/search_screen.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({super.key});
@@ -9,28 +13,31 @@ class SearchBar extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.85,
       child: GestureDetector(
-        behavior: HitTestBehavior.translucent,
         onTap: () {
-          // Remove focus and dismiss keyboard
-          FocusScopeNode currentFocus = FocusScope.of(context);
-          if (!currentFocus.hasPrimaryFocus &&
-              currentFocus.focusedChild != null) {
-            currentFocus.focusedChild?.unfocus();
-          }
+          // Redirect to another page here
+          Get.to(() => SearchScreen());
         },
-        child: TextField(
-          style: TextStyle(fontSize: 20),
-          textAlignVertical: TextAlignVertical.center,
-          decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 1.5,
+        child: Container(
+          height: 50,
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.horizontal(
+              left: Radius.circular(50),
+              right: Radius.circular(50),
             ),
-            prefixIcon: IconButton(
-              padding: const EdgeInsets.only(top: 1.0, bottom: 1.0, left: 4.0),
-              onPressed: () {},
-              icon: Icon(Icons.search),
-            ),
-            hintText: "Search here...",
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.search),
+              SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  'Search here...',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+            ],
           ),
         ),
       ),

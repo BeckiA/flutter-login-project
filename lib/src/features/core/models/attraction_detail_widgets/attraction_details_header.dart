@@ -27,7 +27,7 @@ class AttractionsDetailHeader extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.4,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(attraction.picture), fit: BoxFit.cover),
+                    image: NetworkImage(attraction.picture), fit: BoxFit.cover),
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25),
                     bottomRight: Radius.circular(25)),
@@ -40,12 +40,12 @@ class AttractionsDetailHeader extends StatelessWidget {
                   radius: 26,
                   backgroundColor: brightnessDark ? VADTextColor : VALTextColor,
                   child: Container(
-                    child: IconButton(onPressed: () => Get.back(), icon: Icon(LineAwesomeIcons.arrow_left)),
+                    child: IconButton(
+                        onPressed: () => Get.back(),
+                        icon: Icon(LineAwesomeIcons.arrow_left)),
                   ),
                 ),
-                IconButton(onPressed: () {
-                  
-                }, icon: Icon(LineAwesomeIcons.heart))
+                IconButton(onPressed: () {}, icon: Icon(LineAwesomeIcons.heart))
               ],
             )
           ],

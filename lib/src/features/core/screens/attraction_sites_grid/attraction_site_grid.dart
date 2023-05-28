@@ -10,8 +10,18 @@ import '../../controllers/attraction.dart';
 import '../../controllers/attractions.dart';
 import '../attraction_sites/attraction_screen.dart';
 
-class AttractionGrids extends StatelessWidget {
+class AttractionGrids extends StatefulWidget {
   AttractionGrids({Key? key}) : super(key: key);
+
+  @override
+  State<AttractionGrids> createState() => _AttractionGridsState();
+}
+
+class _AttractionGridsState extends State<AttractionGrids> {
+  void initState() {
+    super.initState();
+    AttractionList.instance.fetchAttractions();
+  }
 
   @override
   Widget build(BuildContext context) {

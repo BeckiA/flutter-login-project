@@ -53,7 +53,7 @@ class FavoritesScreen extends StatelessWidget {
                                             bottomLeft: Radius.circular(10))),
                                     width: 140,
                                     height: 140,
-                                    child: Image.asset(
+                                    child: Image.network(
                                       favorites[i].picture,
                                       fit: BoxFit.cover,
                                     ),

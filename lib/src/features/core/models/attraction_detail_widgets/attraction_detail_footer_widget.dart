@@ -53,7 +53,7 @@ class AttractionDetailsFooter extends StatelessWidget {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
+                          child: Image.network(
                             relatedAttractions[index].picture,
                             height: 150,
                             width: 150,

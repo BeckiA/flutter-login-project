@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:login_app/src/features/core/controllers/atrractions_list.dart';
 import 'package:login_app/src/features/core/controllers/attraction.dart';
 import 'package:login_app/src/features/core/itinerary/screens/note_add_screen.dart';
 import 'package:login_app/src/features/core/itinerary/screens/note_edit_screen.dart';
@@ -24,6 +25,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthenticationRepository()));
+  // Get.put(AttractionList());
   runApp(MyApp());
 }
 

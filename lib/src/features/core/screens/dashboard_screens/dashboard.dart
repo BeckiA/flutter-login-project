@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 import '../../controllers/attractions.dart';
 import '../attraction_sites_grid/attraction_site_grid.dart';
 import 'dashboard_header_widgets.dart';
+import '../../controllers/atrractions_list.dart';
 
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(Attractions());
     Get.put(AttractionGrids());
-
+    Get.put(AttractionList());
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
