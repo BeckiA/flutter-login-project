@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-import '../../../../constants/colors.dart';
+import '../../../../../constants/colors.dart';
+import 'no_search_query_widget.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -46,9 +47,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: CircularProgressIndicator(),
                   )
                 : searchQuery.isEmpty
-                    ? Center(
-                        child: Text("Search for Attractions..."),
-                      )
+                    ? NoSearch()
                     : ListView.builder(
                         itemCount: snapshots.data!.docs.length,
                         itemBuilder: (context, index) {

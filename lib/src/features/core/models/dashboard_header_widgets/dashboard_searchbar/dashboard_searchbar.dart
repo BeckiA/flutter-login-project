@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-import '../../../screens/dashboard_screens/search_screen.dart';
+import '../../../screens/dashboard_screens/search/search_screen.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({super.key});

@@ -53,3 +53,6 @@ const String VAGridImage8 = "assets/images/grid-images/ashendiye-festival.jpg";
 
 // Itinerary Image
 const String VAItrenaryImage = "assets/images/itinerary/broken-heart.png";
+
+// Search Image
+const String VASearchImage = "assets/images/search/search_icon.png";

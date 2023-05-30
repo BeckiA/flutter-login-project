@@ -24,19 +24,21 @@ class AttractionDetailScreen extends StatelessWidget {
     final titleContent = AttractionDetailController.instance.titles;
     final args = Get.arguments as Map<String, dynamic>;
     final id = args['id'] as String;
+    final picture = args['picture'].toString();
+    final title = args['title'].toString();
     final latitude = args['latitude'] as double;
     final longitude = args['longitude'] as double;
 
     print(id);
     print(latitude);
     print(longitude);
-    // final Attraction attraction =
-    //     attractions.firstWhere((attraction) => attraction.id == id);
-    // Create a list of attractions that belong to the same category as the current attraction
+
+    // Attraction get fetched from here
     final attraction = AttractionList.instance.findAttractionById(id);
 
     final categoryId = attraction.categoryId;
-    final title = attraction.title;
+    // final title = attraction.title;
+    // final picture = attraction.picture;
     final attractId = attraction.id;
 
     return Scaffold(
@@ -52,6 +54,7 @@ class AttractionDetailScreen extends StatelessWidget {
               height: 20,
             ),
             AttractionDetailGrid(
+              picture: picture,
               title: title,
               id: attractId,
               latitude: latitude,

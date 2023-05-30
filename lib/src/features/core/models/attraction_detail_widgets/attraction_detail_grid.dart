@@ -9,12 +9,14 @@ class AttractionDetailGrid extends StatelessWidget {
   final double longitude;
   final String title;
   final String id;
+  final String picture;
   const AttractionDetailGrid({
     super.key,
     required this.id,
     required this.latitude,
     required this.longitude,
     required this.title,
+    required this.picture,
     required this.brightnessDark,
     required this.titleContent,
   });
@@ -61,6 +63,7 @@ class AttractionDetailGrid extends StatelessWidget {
                       arguments: {
                         'id': id,
                         'title': title,
+                        'picture': picture,
                         'latitude': latitude,
                         'longitude': longitude
                       });

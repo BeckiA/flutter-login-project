@@ -67,6 +67,7 @@ dependencies:
   flutter_local_notifications: ^14.1.0
   url_launcher_web: ^2.0.17
   comment_box: ^0.0.18
+  cached_network_image: ^3.2.3
   
 dev_dependencies:
   flutter_test:
@@ -108,6 +109,7 @@ flutter:
     - assets/images/carousel-slider-images/
     - assets/images/grid-images/
     - assets/images/itinerary/
+    - assets/images/search/
     
     
 
