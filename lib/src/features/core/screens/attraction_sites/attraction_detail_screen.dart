@@ -26,6 +26,7 @@ class AttractionDetailScreen extends StatelessWidget {
     final id = args['id'] as String;
     final latitude = args['latitude'] as double;
     final longitude = args['longitude'] as double;
+
     print(id);
     print(latitude);
     print(longitude);
@@ -35,6 +36,8 @@ class AttractionDetailScreen extends StatelessWidget {
     final attraction = AttractionList.instance.findAttractionById(id);
 
     final categoryId = attraction.categoryId;
+    final title = attraction.title;
+    final attractId = attraction.id;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -49,6 +52,8 @@ class AttractionDetailScreen extends StatelessWidget {
               height: 20,
             ),
             AttractionDetailGrid(
+              title: title,
+              id: attractId,
               latitude: latitude,
               longitude: longitude,
               brightnessDark: brightnessDark,

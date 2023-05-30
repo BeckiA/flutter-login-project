@@ -6,7 +6,7 @@ class WeatherController {
       double latitude, double longitude) async {
     final apiKey = 'b5f06a9cb49661c1596444568c2007e6';
     final url =
-        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey';
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric';
 
     final response = await http.get(Uri.parse(url));
 

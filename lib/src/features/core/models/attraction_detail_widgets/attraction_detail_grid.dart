@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/core/controllers/attraction_details_controller.dart';
 import '../../../../constants/colors.dart';
-import '../map_widgets/travel_guide.dart';
+import '../geo_location_widgets/travel_guide.dart';
 
 class AttractionDetailGrid extends StatelessWidget {
   final double latitude;
   final double longitude;
-
+  final String title;
+  final String id;
   const AttractionDetailGrid({
     super.key,
+    required this.id,
     required this.latitude,
     required this.longitude,
+    required this.title,
     required this.brightnessDark,
     required this.titleContent,
   });
@@ -56,6 +59,8 @@ class AttractionDetailGrid extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(AttractionDetailController.instance.routes[index],
                       arguments: {
+                        'id': id,
+                        'title': title,
                         'latitude': latitude,
                         'longitude': longitude
                       });

@@ -11,15 +11,15 @@ class AttractionRepository {
           await _firestore.collection('Attractions').get();
 
       // Define the categoryIds to filter
-      List<String> categoryIds = [
+      List<String> categoryIds = const [
         'hs',
         'rs',
-        // 'np',
-        // 'wb',
-        // 'hv',
-        // 'mus',
-        // 'fest',
-        // 'eve'
+        'np',
+        'wb',
+        'hv',
+        'mus',
+        'fest',
+        'eve'
       ];
 
       // Create a map to hold the grouped attractions

@@ -114,6 +114,7 @@ class Attraction extends StatelessWidget with ChangeNotifier {
         onTap: () {
           Get.toNamed('/attraction-detail', arguments: {
             'id': id,
+            'title': title,
             'latitude': latitude,
             'longitude': longitude,
           });

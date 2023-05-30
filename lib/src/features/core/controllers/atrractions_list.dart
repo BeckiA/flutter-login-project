@@ -56,13 +56,15 @@ class AttractionList extends GetxController {
   }
 
   List<Attraction> getAttractionIndex(int index) {
-    if (true) {
+    if (index >= 0 && index < _attractionList.length) {
       return [..._attractionList[index]];
+    } else {
+      return []; // or any other fallback value, such as an empty list
     }
   }
 
-  List<List<Attraction>> get attractionItems {
-    return [
+  Future<List<List<Attraction>>> getAttractionItems() async {
+    return await [
       ..._attractionList.map((attractions) => [...attractions])
     ];
   }

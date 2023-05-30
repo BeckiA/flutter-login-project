@@ -8,6 +8,7 @@ import '../../controllers/atrractions_list.dart';
 import '../../controllers/attraction.dart';
 
 import '../../controllers/attractions.dart';
+import '../../controllers/attractions_list_controller/attraction_list_repository.dart';
 import '../attraction_sites/attraction_screen.dart';
 
 class AttractionGrids extends StatefulWidget {
@@ -21,13 +22,13 @@ class _AttractionGridsState extends State<AttractionGrids> {
   void initState() {
     super.initState();
     AttractionList.instance.fetchAttractions();
+
+    Get.put(AttractionList());
+    Get.put(Attractions());
   }
 
   @override
   Widget build(BuildContext context) {
-    Get.put(AttractionList());
-    Get.put(Attractions());
-
     return Expanded(
       child: GridView.builder(
         shrinkWrap: true,

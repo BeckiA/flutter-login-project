@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:login_app/src/features/core/controllers/atrractions_list.dart';
 
 import '../../../../constants/image_strings.dart';
 import '../../../../constants/text_strings.dart';
 
 class CarouselLogic extends GetxController {
   static CarouselLogic get instance => Get.find();
+  final controller = Get.put(AttractionList());
+
   final List<String> imgList = [
     VACarouselImage1,
     VACarouselImage2,

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:login_app/src/features/core/controllers/map_controllers/nearby_shops_controller.dart';
+import 'package:login_app/src/features/core/controllers/geo_location_controllers/nearby_hotels_controller.dart';
 
-class NearbyShops extends StatelessWidget {
+import '../../controllers/geo_location_controllers/nearby_restaurants_controller.dart';
+
+class NearbyRestaurants extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(NearbyShopsController());
+    Get.put(NearbyRestaurantsController());
     // Get the arguments that were passed to this screen
     final arguments = Get.arguments;
 
@@ -17,8 +19,8 @@ class NearbyShops extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: FutureBuilder(
-          future: NearbyShopsController.instance
-              .getShopMarkers(latitude, longitude, 5000), // 10km radius
+          future: NearbyRestaurantsController.instance
+              .getRestaurantMarkers(latitude, longitude, 5000), // 10km radius
           builder:
               (BuildContext context, AsyncSnapshot<List<Marker>> snapshot) {
             if (snapshot.connectionState == ConnectionState.done &&

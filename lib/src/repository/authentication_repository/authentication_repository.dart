@@ -17,7 +17,7 @@ class AuthenticationRepository extends GetxController {
 
   // Variables
   final _auth = FirebaseAuth.instance;
-  late final Rx<User?> firebaseUser;
+  Rx<User?> firebaseUser = Rx<User?>(null);
   var verificationId = ''.obs;
 
   @override

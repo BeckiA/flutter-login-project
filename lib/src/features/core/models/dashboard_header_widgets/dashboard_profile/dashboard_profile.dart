@@ -22,11 +22,6 @@ class _DashboardProfileState extends State<DashboardProfile> {
   Widget build(BuildContext context) {
     final pickerInstance = ImagePickerWidget.instance;
     final userEmail = _authRepo.firebaseUser.value!.email as String;
-    String userName = '';
-    profileController.getUserNameData(userEmail);
-    setState(() {
-      userName = profileController.userName.value;
-    });
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,9 +43,12 @@ class _DashboardProfileState extends State<DashboardProfile> {
               width: 10.0,
             ),
             Expanded(
-              child: Text(
-                "Welcome, $userName",
-              ),
+              child: Obx(() {
+                final userName = profileController.userName.value;
+                return Text(
+                  "Welcome, $userName",
+                );
+              }),
             ),
           ]),
         ),
