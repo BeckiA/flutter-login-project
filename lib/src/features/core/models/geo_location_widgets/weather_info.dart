@@ -60,8 +60,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(50),
-                                    bottomRight: Radius.circular(50)),
+                                    bottomLeft: Radius.circular(25),
+                                    bottomRight: Radius.circular(25)),
                                 image: DecorationImage(
                                   image: CachedNetworkImageProvider(picture),
                                   fit: BoxFit.cover,
@@ -73,9 +73,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 alignment: Alignment.center,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(25),
+                                        bottomRight: Radius.circular(25)),
                                     color: Colors.black.withOpacity(0.5),
                                   ),
                                   height: double.infinity,

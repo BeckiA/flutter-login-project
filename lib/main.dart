@@ -18,6 +18,7 @@ import 'package:login_app/src/features/core/models/geo_location_widgets/nearby_s
 import 'package:login_app/src/features/core/models/geo_location_widgets/travel_guide.dart';
 import 'package:login_app/src/features/core/models/geo_location_widgets/weather_info.dart';
 import 'package:login_app/src/features/core/screens/attraction_sites/attraction_detail_screen.dart';
+import 'package:login_app/src/utils/themes/app_theme_controller.dart';
 import '/src/features/core/screens/attraction_sites/attraction_screen.dart';
 import '/src/features/core/screens/main_screen.dart';
 import '/src/repository/authentication_repository/authentication_repository.dart';
@@ -57,6 +58,8 @@ Future<void> main() async {
   FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       alert: true, badge: true, sound: true);
   // Get.put(AttractionList());
+  // Initalizing theme
+  Get.put(ThemeController());
   runApp(MyApp());
 }
 
@@ -129,11 +132,13 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find();
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: VAAppTheme.lightTheme,
       darkTheme: VAAppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode:
+          themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
       home: OnBoardingScreen(),
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.leftToRightWithFade,

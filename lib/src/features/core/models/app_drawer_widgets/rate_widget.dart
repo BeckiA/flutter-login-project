@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+
+import '../../../../constants/colors.dart';
+
+class Rate extends StatelessWidget {
+  const Rate({
+    Key? key,
+    required this.isDark,
+  }) : super(key: key);
+
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.only(bottom: 5.0),
+          child: Container(
+            child: Text(
+              "Rate",
+              style: TextStyle(
+                fontFamily: "Montserrat",
+                fontSize: 21,
+                color: isDark ? VAPrimaryColor : VAAccentColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        Divider(
+          color: Colors.grey,
+          thickness: 0.5,
+          height: 0.5,
+        ),
+        SizedBox(height: 10),
+        ListTile(
+          leading: Icon(
+            LineAwesomeIcons.star,
+            size: 28,
+            color: VAPrimaryColor,
+          ),
+          title: Text(
+            "Rate this app",
+            style: TextStyle(
+              fontFamily: "Poppins",
+              fontSize: 16,
+            ),
+          ),
+          trailing: Icon(
+            LineAwesomeIcons.angle_right,
+            size: 20,
+            color: Colors.grey,
+          ),
+          onTap: () {
+            // Handle rate this app option tap
+          },
+        ),
+        SizedBox(height: 7),
+        Divider(
+          color: Colors.grey,
+          thickness: 0.5,
+          height: 0.5,
+        ),
+      ],
+    );
+  }
+}

@@ -33,20 +33,26 @@ class AttractionsDetailHeader extends StatelessWidget {
                     bottomRight: Radius.circular(25)),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CircleAvatar(
-                  radius: 26,
-                  backgroundColor: brightnessDark ? VADTextColor : VALTextColor,
-                  child: Container(
-                    child: IconButton(
-                        onPressed: () => Get.back(),
-                        icon: Icon(LineAwesomeIcons.arrow_left)),
+            SizedBox(height: 20),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CircleAvatar(
+                    radius: 26,
+                    backgroundColor:
+                        brightnessDark ? VADTextColor : VALTextColor,
+                    child: Container(
+                      child: IconButton(
+                          onPressed: () => Get.back(),
+                          icon: Icon(LineAwesomeIcons.arrow_left)),
+                    ),
                   ),
-                ),
-                IconButton(onPressed: () {}, icon: Icon(LineAwesomeIcons.heart))
-              ],
+                  IconButton(
+                      onPressed: () {}, icon: Icon(LineAwesomeIcons.heart))
+                ],
+              ),
             )
           ],
         ),

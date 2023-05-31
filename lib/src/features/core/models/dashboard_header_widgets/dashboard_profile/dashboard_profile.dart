@@ -7,6 +7,7 @@ import 'package:login_app/src/features/authentication/screens/profile/Image_pick
 import '../../../../../constants/image_strings.dart';
 import '../../../../../repository/authentication_repository/authentication_repository.dart';
 import '../../../../authentication/controllers/profile_controller.dart';
+import '../../drawer_screen_widget.dart';
 
 class DashboardProfile extends StatefulWidget {
   @override
@@ -29,7 +30,9 @@ class _DashboardProfileState extends State<DashboardProfile> {
         Expanded(
           child: Row(children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(DrawerScreen());
+              },
               child: SizedBox(
                 width: 50,
                 height: 50,
