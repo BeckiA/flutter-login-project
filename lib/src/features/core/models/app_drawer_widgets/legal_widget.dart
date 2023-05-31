@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../../../../constants/colors.dart';
+import '../../../../utils/themes/app_theme_controller.dart';
 
 class LegalWidget extends StatelessWidget {
-  const LegalWidget({
-    Key? key,
-    required this.isDark,
-  }) : super(key: key);
-
-  final bool isDark;
+  final ThemeController themeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,9 @@ class LegalWidget extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Montserrat",
               fontSize: 21,
-              color: isDark ? VAPrimaryColor : VAAccentColor,
+              color: themeController.isDarkMode.value
+                  ? VAPrimaryColor
+                  : VAAccentColor,
               fontWeight: FontWeight.bold,
             ),
           ),

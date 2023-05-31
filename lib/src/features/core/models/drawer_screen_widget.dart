@@ -64,19 +64,17 @@ class DrawerScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                TravelEssentialWidget(isDark: isDark),
+                TravelEssentialWidget(),
                 SizedBox(height: 5),
                 Preferences(isDark: isDark),
                 SizedBox(
                   height: 5,
                 ),
-                Rate(isDark: isDark),
+                Rate(),
                 SizedBox(
                   height: 5,
                 ),
-                LegalWidget(
-                  isDark: isDark,
-                )
+                LegalWidget()
               ],
             ),
           ],

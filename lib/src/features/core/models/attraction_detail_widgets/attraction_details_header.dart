@@ -3,18 +3,18 @@ import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../../../constants/colors.dart';
+import '../../../../utils/themes/app_theme_controller.dart';
 import '../../controllers/attraction.dart';
 import '../../controllers/navigation_menu_controllers/favorite_controller.dart';
 
 class AttractionsDetailHeader extends StatelessWidget {
-  const AttractionsDetailHeader({
+  AttractionsDetailHeader({
     super.key,
     required this.attraction,
-    required this.brightnessDark,
   });
 
   final Attraction attraction;
-  final bool brightnessDark;
+  final ThemeController themeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -35,22 +35,43 @@ class AttractionsDetailHeader extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleAvatar(
                     radius: 26,
-                    backgroundColor:
-                        brightnessDark ? VADTextColor : VALTextColor,
+                    backgroundColor: themeController.isDarkMode.value
+                        ? VADTextColor
+                        : VALTextColor,
                     child: Container(
                       child: IconButton(
-                          onPressed: () => Get.back(),
-                          icon: Icon(LineAwesomeIcons.arrow_left)),
+                        onPressed: () => Get.back(),
+                        icon: Icon(LineAwesomeIcons.arrow_left),
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  IconButton(
-                      onPressed: () {}, icon: Icon(LineAwesomeIcons.heart))
+                  CircleAvatar(
+                    backgroundColor: themeController.isDarkMode.value
+                        ? VADTextColor
+                        : VALTextColor,
+                    radius: 26,
+                    child: Container(
+                      child: IconButton(
+                        onPressed: () {
+                          attraction.toggleFavoriteStatus();
+                          print(attraction.isFavorite);
+                          attraction.isFavorite = attraction.isFavorite;
+                        },
+                        icon: Icon(
+                          attraction.isFavorite
+                              ? LineAwesomeIcons.heart_1
+                              : LineAwesomeIcons.heart,
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             )
@@ -121,13 +142,17 @@ class AttractionsDetailHeader extends StatelessWidget {
                         fontFamily: "Montserrat",
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
-                        color: brightnessDark ? VADTextColor : VALTextColor),
+                        color: themeController.isDarkMode.value
+                            ? VADTextColor
+                            : VALTextColor),
                   ),
                 ),
                 SizedBox(
                   width: 200,
                   child: Divider(
-                    color: brightnessDark ? VADTextColor : VALTextColor,
+                    color: themeController.isDarkMode.value
+                        ? VADTextColor
+                        : VALTextColor,
                     thickness: 5,
                   ),
                 ),

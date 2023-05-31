@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/core/controllers/attraction_details_controller.dart';
 import '../../../../constants/colors.dart';
+import '../../../../utils/themes/app_theme_controller.dart';
 import '../geo_location_widgets/travel_guide.dart';
 
 class AttractionDetailGrid extends StatelessWidget {
@@ -10,20 +11,18 @@ class AttractionDetailGrid extends StatelessWidget {
   final String title;
   final String id;
   final String picture;
-  const AttractionDetailGrid({
+  AttractionDetailGrid({
     super.key,
     required this.id,
     required this.latitude,
     required this.longitude,
     required this.title,
     required this.picture,
-    required this.brightnessDark,
     required this.titleContent,
   });
 
-  final bool brightnessDark;
   final List<String> titleContent;
-
+  final ThemeController themeController = Get.find();
   @override
   Widget build(BuildContext context) {
     Get.put(AttractionDetailController());
@@ -42,7 +41,9 @@ class AttractionDetailGrid extends StatelessWidget {
           SizedBox(
             width: 60,
             child: Divider(
-              color: brightnessDark ? VADTextColor : VALTextColor,
+              color: themeController.isDarkMode.value
+                  ? VADTextColor
+                  : VALTextColor,
               thickness: 5,
             ),
           ),
@@ -81,7 +82,7 @@ class AttractionDetailGrid extends StatelessWidget {
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(20),
                                 ),
-                                color: brightnessDark
+                                color: themeController.isDarkMode.value
                                     ? VADTextColor
                                     : VALTextColor),
                             height: double.infinity,

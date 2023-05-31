@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:login_app/src/utils/themes/app_theme_controller.dart';
 
 import '../../../../../constants/colors.dart';
 import 'no_search_query_widget.dart';
@@ -20,8 +21,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final darkColor =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final ThemeController themeController = Get.find();
     return Scaffold(
         appBar: AppBar(
           title: TextField(
@@ -30,7 +30,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 border: InputBorder.none,
                 prefixIcon: Icon(Icons.search),
                 hintText: 'Search & Explore Places',
-                hintStyle: TextStyle(fontSize: 18)),
+                hintStyle: TextStyle(
+                    fontSize: 18,
+                    color: themeController.isDarkMode.value
+                        ? Colors.white
+                        : Colors.black)),
             onChanged: (val) {
               setState(() {
                 searchQuery = val;
@@ -141,7 +145,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                                 SizedBox(
                                                   width: 130,
                                                   child: Divider(
-                                                    color: darkColor
+                                                    color: themeController
+                                                            .isDarkMode.isTrue
                                                         ? VAWhiteColor
                                                         : Colors.blue,
                                                     thickness: 5,

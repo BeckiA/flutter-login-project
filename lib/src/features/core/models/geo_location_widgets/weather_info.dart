@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../constants/colors.dart';
+import '../../../../utils/themes/app_theme_controller.dart';
 import '../../controllers/geo_location_controllers/weather_controller.dart';
 
 class WeatherScreen extends StatefulWidget {
@@ -34,6 +35,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     });
   }
 
+  final ThemeController themeController = Get.find();
   Widget build(BuildContext context) {
     Get.put(WeatherController());
     final args = Get.arguments as Map<String, dynamic>;
@@ -88,10 +90,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                       Text(
                                         title,
                                         style: TextStyle(
-                                          fontFamily: "Montserrat",
-                                          fontSize: 36,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            fontFamily: "Montserrat",
+                                            fontSize: 36,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                        textAlign: TextAlign.center,
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -99,10 +102,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                       Text(
                                         '${weatherData['main']['temp']} °C',
                                         style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            fontFamily: "Poppins",
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Colors.white.withOpacity(0.9)),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -110,10 +114,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                       Text(
                                         '${weatherData['weather'][0]['description']}',
                                         style: TextStyle(
-                                          fontFamily: "Montserrat",
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            fontFamily: "Montserrat",
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Colors.white.withOpacity(0.8)),
                                       ),
                                     ],
                                   ),

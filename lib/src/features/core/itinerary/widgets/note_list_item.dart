@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
+import '../../../../utils/themes/app_theme_controller.dart';
 import '../screens/note_view_screen.dart';
 import '../utils/constants.dart';
 
@@ -20,8 +21,7 @@ class ListItem extends StatelessWidget {
       required this.date});
   @override
   Widget build(BuildContext context) {
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-
+    final ThemeController themeController = Get.find();
     return Container(
       width: double.infinity,
       height: 135.0,
@@ -35,7 +35,9 @@ class ListItem extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: BoxDecoration(
-            color: isDark ? Colors.black87 : Colors.white30,
+            color: themeController.isDarkMode.value
+                ? Colors.black87
+                : Colors.white30,
             // boxShadow: shadow,
             borderRadius: BorderRadius.circular(15.0),
             // border: Border.all(color: grey, width: 1.0),
@@ -53,7 +55,9 @@ class ListItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: TextStyle(
-                          color: isDark ? Colors.white : Colors.black87,
+                          color: themeController.isDarkMode.value
+                              ? Colors.white
+                              : Colors.black87,
                         ),
                       ),
                       const SizedBox(height: 4.0),
@@ -61,7 +65,9 @@ class ListItem extends StatelessWidget {
                         date,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color: isDark ? Colors.white70 : Colors.black26,
+                          color: themeController.isDarkMode.value
+                              ? Colors.white70
+                              : Colors.black26,
                         ),
                       ),
                       const SizedBox(
@@ -73,7 +79,9 @@ class ListItem extends StatelessWidget {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            color: isDark ? Colors.white70 : Colors.black26,
+                            color: themeController.isDarkMode.value
+                                ? Colors.white70
+                                : Colors.black26,
                           ),
                         ),
                       ),

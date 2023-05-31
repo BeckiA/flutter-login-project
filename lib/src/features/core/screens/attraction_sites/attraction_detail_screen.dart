@@ -5,6 +5,7 @@ import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/features/core/controllers/atrractions_list.dart';
 import 'package:login_app/src/features/core/controllers/attraction_details_controller.dart';
 
+import '../../../../utils/themes/app_theme_controller.dart';
 import '../../controllers/attraction.dart';
 import '../../models/attraction_detail_widgets/attraction_detail_footer_widget.dart';
 import '../../models/attraction_detail_widgets/attraction_detail_grid.dart';
@@ -16,8 +17,8 @@ class AttractionDetailScreen extends StatelessWidget {
   // AttractionDetailScreen({required this.attractions});
   @override
   Widget build(BuildContext context) {
-    final brightnessDark =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
+    final ThemeController themeController = Get.find();
+
     final List<Attraction> attractions;
     Get.put(AttractionList());
     Get.put(AttractionDetailController());
@@ -49,7 +50,8 @@ class AttractionDetailScreen extends StatelessWidget {
               height: 10,
             ),
             AttractionsDetailHeader(
-                attraction: attraction, brightnessDark: brightnessDark),
+              attraction: attraction,
+            ),
             SizedBox(
               height: 20,
             ),
@@ -59,14 +61,12 @@ class AttractionDetailScreen extends StatelessWidget {
               id: attractId,
               latitude: latitude,
               longitude: longitude,
-              brightnessDark: brightnessDark,
               titleContent: titleContent,
             ),
             SizedBox(
               height: 20,
             ),
             AttractionDetailsFooter(
-              brightnessDark: brightnessDark,
               attractions: [attraction],
               categoryId: categoryId,
               id: id,

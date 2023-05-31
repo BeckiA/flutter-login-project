@@ -24,7 +24,7 @@ class NoSearch extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 15,
               ),
               Text(
                 "No Search Queries found",
@@ -33,13 +33,17 @@ class NoSearch extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                "Input your keywords please and get your search results",
-                style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                    fontSize: 14),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Input your keywords please and get your search results",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                      fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
               )
             ],
           ),

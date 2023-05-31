@@ -26,7 +26,7 @@ class Preferences extends StatelessWidget {
             style: TextStyle(
               fontFamily: "Montserrat",
               fontSize: 21,
-              color: isDark ? VAPrimaryColor : VAAccentColor,
+              color: themeController.isDarkMode.value ? VAPrimaryColor : VAAccentColor,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.start,

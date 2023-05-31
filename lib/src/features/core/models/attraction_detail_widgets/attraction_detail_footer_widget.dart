@@ -12,11 +12,11 @@ class AttractionDetailsFooter extends StatelessWidget {
   AttractionDetailsFooter({
     required this.categoryId,
     required this.attractions,
-    required this.brightnessDark,
+    // required this.brightnessDark,
     required this.id,
   });
 
-  final bool brightnessDark;
+  // final bool brightnessDark;
 
   @override
   Widget build(BuildContext context) {

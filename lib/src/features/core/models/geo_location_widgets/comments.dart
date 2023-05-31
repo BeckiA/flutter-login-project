@@ -2,6 +2,8 @@ import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:login_app/src/constants/colors.dart';
+import 'package:login_app/src/utils/themes/app_theme_controller.dart';
 
 import '../../../../repository/authentication_repository/authentication_repository.dart';
 import '../../../authentication/controllers/image_picker_controller.dart';
@@ -16,6 +18,8 @@ class Comments extends StatefulWidget {
 class _CommentsState extends State<Comments> {
   final formKey = GlobalKey<FormState>();
   final TextEditingController commentController = TextEditingController();
+  // Initalization for the text Theme
+  final ThemeController themeController = Get.find();
   List filedata = [
     // {
     //   'name': 'Chuks Okwuenu',
@@ -68,12 +72,34 @@ class _CommentsState extends State<Comments> {
                 ),
               ),
               title: DefaultTextStyle(
-                style: TextStyle(fontWeight: FontWeight.bold),
-                child: Text(data[i]['name']),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: themeController.isDarkMode.value
+                        ? Colors.white
+                        : Colors.black),
+                child: Text(
+                  data[i]['name'],
+                  style: TextStyle(
+                      color: themeController.isDarkMode.value
+                          ? Colors.white
+                          : Colors.black,
+                      fontSize: 18),
+                ),
               ),
-              subtitle: Text(data[i]['message']),
+              subtitle: Text(
+                data[i]['message'],
+                style: TextStyle(
+                    fontSize: 16,
+                    color: themeController.isDarkMode.value
+                        ? Colors.white
+                        : Colors.black),
+              ),
               trailing: DefaultTextStyle(
-                style: TextStyle(fontSize: 10),
+                style: TextStyle(
+                    fontSize: 10,
+                    color: themeController.isDarkMode.value
+                        ? Colors.white
+                        : Colors.black),
                 child: Text(data[i]['date']),
               ),
             ),
@@ -94,6 +120,7 @@ class _CommentsState extends State<Comments> {
 
     // Initalizations for the user image
     final _imagePickerController = Get.put(ImagePickerController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Comment Page"),
@@ -126,8 +153,13 @@ class _CommentsState extends State<Comments> {
           },
           formKey: formKey,
           commentController: commentController,
-          textColor: Colors.white,
-          sendWidget: Icon(Icons.send_sharp, size: 30, color: Colors.white),
+          textColor:
+              themeController.isDarkMode.value ? Colors.white : VABlackColor,
+          sendWidget: Icon(Icons.send_sharp,
+              size: 30,
+              color: themeController.isDarkMode.value
+                  ? Colors.white
+                  : VABlackColor),
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../constants/colors.dart';
+import '../../../../utils/themes/app_theme_controller.dart';
 import '../helper/note_provider.dart';
 import '../models/note.dart';
 import '../utils/constants.dart';
@@ -14,21 +15,26 @@ class NoteViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController themeController = Get.find();
+
     Get.put(NoteController());
     final args = Get.arguments;
     final id = args['id'];
     final noteController = Get.find<NoteController>();
     final selectedNote = noteController.getNote(id);
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: isDark ? Colors.black87 : Colors.white,
+      backgroundColor:
+          themeController.isDarkMode.value ? Colors.black87 : Colors.white,
       appBar: AppBar(
         elevation: 0.7,
-        backgroundColor: isDark ? Colors.black87 : Colors.white,
+        backgroundColor:
+            themeController.isDarkMode.value ? Colors.black87 : Colors.white,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: isDark ? Colors.white : Colors.black87,
+            color: themeController.isDarkMode.value
+                ? Colors.white
+                : Colors.black87,
           ),
           onPressed: () {
             Get.back();
@@ -38,7 +44,9 @@ class NoteViewScreen extends StatelessWidget {
           IconButton(
             icon: Icon(
               Icons.delete,
-              color: isDark ? Colors.white : Colors.black87,
+              color: themeController.isDarkMode.value
+                  ? Colors.white
+                  : Colors.black87,
             ),
             onPressed: () => _showDialog(selectedNote),
           ),
@@ -89,7 +97,8 @@ class NoteViewScreen extends StatelessWidget {
       floatingActionButton: Theme(
         data: ThemeData(
           // ignore: deprecated_member_use
-          accentColor: isDark ? VAPrimaryColor : VAAccentColor,
+          accentColor:
+              themeController.isDarkMode.value ? VAPrimaryColor : VAAccentColor,
           backgroundColor: Theme.of(context).accentColor,
           floatingActionButtonTheme: FloatingActionButtonThemeData(),
         ),

@@ -7,6 +7,7 @@ import 'package:login_app/src/features/authentication/screens/profile/Image_pick
 import '../../../../../constants/image_strings.dart';
 import '../../../../../repository/authentication_repository/authentication_repository.dart';
 import '../../../../authentication/controllers/profile_controller.dart';
+import '../../attraction-information/notfication_icon.dart';
 import '../../drawer_screen_widget.dart';
 
 class DashboardProfile extends StatefulWidget {
@@ -56,8 +57,11 @@ class _DashboardProfileState extends State<DashboardProfile> {
           ]),
         ),
         Card(
-            child:
-                IconButton(onPressed: () {}, icon: Icon(LineAwesomeIcons.bell)))
+            child: IconButton(
+                onPressed: () {
+                  Get.to(NoNotfications());
+                },
+                icon: Icon(LineAwesomeIcons.bell)))
       ],
     );
   }

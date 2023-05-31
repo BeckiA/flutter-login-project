@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/constants/colors.dart';
+import 'package:login_app/src/utils/themes/app_theme_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../constants/image_strings.dart';
 import '../helper/note_provider.dart';
@@ -16,8 +17,7 @@ class NoteListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-
+    final ThemeController themeController = Get.find();
     Get.put(NoteController());
     final noteController = Get.find<NoteController>();
     return FutureBuilder(
@@ -61,7 +61,9 @@ class NoteListScreen extends StatelessWidget {
                 floatingActionButton: Theme(
                   data: ThemeData(
                     // ignore: deprecated_member_use
-                    accentColor: isDark ? VAPrimaryColor : VAAccentColor,
+                    accentColor: themeController.isDarkMode.value
+                        ? VAPrimaryColor
+                        : VAAccentColor,
                     backgroundColor: Theme.of(context).accentColor,
                     floatingActionButtonTheme: FloatingActionButtonThemeData(),
                   ),
@@ -80,15 +82,17 @@ class NoteListScreen extends StatelessWidget {
   }
 
   Widget header() {
+    final ThemeController themeController = Get.find();
+
     return Builder(
       builder: (BuildContext context) {
-        final isDark =
-            MediaQuery.of(context).platformBrightness == Brightness.dark;
         return GestureDetector(
           onTap: _launchUrl,
           child: Container(
             decoration: BoxDecoration(
-              color: isDark ? VADTextColor : VALTextColor,
+              color: themeController.isDarkMode.value
+                  ? VADTextColor
+                  : VALTextColor,
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(75.0),
               ),
