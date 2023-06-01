@@ -43,7 +43,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
         titleController.text = selectedNote.title;
         contentController.text = selectedNote.content;
 
-        if (selectedNote.imagePath != null) {
+        if (selectedNote.imagePath != '') {
           _image = File(selectedNote.imagePath);
         }
       }
@@ -201,9 +201,9 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
       floatingActionButton: Theme(
         data: ThemeData(
           // ignore: deprecated_member_use
-          accentColor:
+          hintColor:
               themeController.isDarkMode.value ? VAPrimaryColor : VAAccentColor,
-          backgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Theme.of(context).hintColor,
           floatingActionButtonTheme: FloatingActionButtonThemeData(),
         ),
         child: FloatingActionButton(

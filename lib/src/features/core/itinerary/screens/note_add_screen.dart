@@ -9,7 +9,6 @@ import '../../../../utils/themes/app_theme_controller.dart';
 import '../helper/note_provider.dart';
 import '../models/note.dart';
 import '../utils/constants.dart';
-import '../widgets/delete_popup.dart';
 import 'note_view_screen.dart';
 
 class NoteAddScreen extends StatefulWidget {
@@ -32,26 +31,33 @@ class _NoteAddScreenState extends State<NoteAddScreen> {
   Widget build(BuildContext context) {
     final ThemeController themeController = Get.find();
     return Scaffold(
-      backgroundColor: themeController.isDarkMode.value ? Colors.black87 : Colors.white,
+      backgroundColor:
+          themeController.isDarkMode.value ? Colors.black87 : Colors.white,
       appBar: AppBar(
         elevation: 0.7,
-        backgroundColor: themeController.isDarkMode.value ? Colors.black87 : Colors.white,
+        backgroundColor:
+            themeController.isDarkMode.value ? Colors.black87 : Colors.white,
         leading: IconButton(
           onPressed: () => Get.back(),
           icon: const Icon(Icons.arrow_back),
-          color: themeController.isDarkMode.value ? Colors.white : Colors.black87,
+          color:
+              themeController.isDarkMode.value ? Colors.white : Colors.black87,
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.camera),
-            color: themeController.isDarkMode.value ? Colors.white : Colors.black87,
+            color: themeController.isDarkMode.value
+                ? Colors.white
+                : Colors.black87,
             onPressed: () {
               getImage(ImageSource.camera);
             },
           ),
           IconButton(
             icon: const Icon(Icons.image),
-            color: themeController.isDarkMode.value ? Colors.white : Colors.black87,
+            color: themeController.isDarkMode.value
+                ? Colors.white
+                : Colors.black87,
             onPressed: () {
               getImage(ImageSource.gallery);
             },
@@ -69,7 +75,9 @@ class _NoteAddScreenState extends State<NoteAddScreen> {
                   inputDecorationTheme: InputDecorationTheme(
                       border: InputBorder.none,
                       hintStyle: TextStyle(
-                          color: themeController.isDarkMode.value ? Colors.white : Colors.black87)),
+                          color: themeController.isDarkMode.value
+                              ? Colors.white
+                              : Colors.black87)),
                 ),
                 child: TextField(
                   controller: titleController,
@@ -109,7 +117,9 @@ class _NoteAddScreenState extends State<NoteAddScreen> {
                     inputDecorationTheme: InputDecorationTheme(
                         border: InputBorder.none,
                         hintStyle: TextStyle(
-                            color: themeController.isDarkMode.value ? Colors.white : Colors.black87))),
+                            color: themeController.isDarkMode.value
+                                ? Colors.white
+                                : Colors.black87))),
                 child: TextField(
                   controller: contentController,
                   maxLines: null,
@@ -126,8 +136,9 @@ class _NoteAddScreenState extends State<NoteAddScreen> {
       floatingActionButton: Theme(
         data: ThemeData(
           // ignore: deprecated_member_use
-          accentColor: themeController.isDarkMode.value ? VAPrimaryColor : VAAccentColor,
-          backgroundColor: Theme.of(context).accentColor,
+          hintColor:
+              themeController.isDarkMode.value ? VAPrimaryColor : VAAccentColor,
+          backgroundColor: Theme.of(context).hintColor,
           floatingActionButtonTheme: FloatingActionButtonThemeData(),
         ),
         child: FloatingActionButton(

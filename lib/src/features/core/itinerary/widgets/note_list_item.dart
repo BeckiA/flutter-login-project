@@ -35,9 +35,16 @@ class ListItem extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 3.0,
+                  blurRadius: 5.0,
+                  offset: Offset(0, 2))
+            ],
             color: themeController.isDarkMode.value
-                ? Colors.black87
-                : Colors.white30,
+                ? Colors.black
+                : Colors.white12,
             // boxShadow: shadow,
             borderRadius: BorderRadius.circular(15.0),
             // border: Border.all(color: grey, width: 1.0),
@@ -55,19 +62,21 @@ class ListItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                           color: themeController.isDarkMode.value
                               ? Colors.white
-                              : Colors.black87,
+                              : Colors.black,
                         ),
                       ),
-                      const SizedBox(height: 4.0),
+                      const SizedBox(height: 8.0),
                       Text(
                         date,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: themeController.isDarkMode.value
-                              ? Colors.white70
-                              : Colors.black26,
+                              ? Colors.white
+                              : Colors.black,
                         ),
                       ),
                       const SizedBox(
@@ -81,7 +90,7 @@ class ListItem extends StatelessWidget {
                           style: TextStyle(
                             color: themeController.isDarkMode.value
                                 ? Colors.white70
-                                : Colors.black26,
+                                : Colors.black87,
                           ),
                         ),
                       ),

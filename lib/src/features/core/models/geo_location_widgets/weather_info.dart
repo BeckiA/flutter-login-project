@@ -39,8 +39,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     Get.put(WeatherController());
     final args = Get.arguments as Map<String, dynamic>;
-    final title = args['title'];
-    final picture = args['picture'];
+    final title = args['title'].toString();
+    final picture = args['picture'].toString();
     final id = args['id'].toString();
     return Scaffold(
       appBar: AppBar(title: const Text('Weather')),

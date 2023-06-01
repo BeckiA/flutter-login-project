@@ -29,6 +29,7 @@ class _AttractionGridsState extends State<AttractionGrids> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(Attractions());
     return Expanded(
       child: GridView.builder(
         shrinkWrap: true,

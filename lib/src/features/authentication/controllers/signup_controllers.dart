@@ -40,11 +40,7 @@ class SignUpController extends GetxController {
         .collection('Users')
         .where('Email', isEqualTo: email)
         .get();
-    Get.snackbar("Error,Failed to Login",
-        "User already Exists, try another email please",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.redAccent.withOpacity(0.1),
-        colorText: Colors.red);
+
     return query.docs.isNotEmpty;
   }
 

@@ -20,7 +20,7 @@ class DashboardHeader extends StatelessWidget {
         SizedBox(
           height: 20.0,
         ),
-        SearchBar(),
+        SearchBarWidget(),
         SizedBox(
           height: 20.0,
         ),

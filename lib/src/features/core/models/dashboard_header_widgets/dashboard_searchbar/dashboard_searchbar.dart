@@ -5,8 +5,8 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import '../../../screens/dashboard_screens/search/search_screen.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
+class SearchBarWidget extends StatelessWidget {
+  const SearchBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

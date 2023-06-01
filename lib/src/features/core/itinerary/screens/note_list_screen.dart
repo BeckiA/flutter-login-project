@@ -61,10 +61,10 @@ class NoteListScreen extends StatelessWidget {
                 floatingActionButton: Theme(
                   data: ThemeData(
                     // ignore: deprecated_member_use
-                    accentColor: themeController.isDarkMode.value
+                    hintColor: themeController.isDarkMode.value
                         ? VAPrimaryColor
                         : VAAccentColor,
-                    backgroundColor: Theme.of(context).accentColor,
+                    backgroundColor: Theme.of(context).hintColor,
                     floatingActionButtonTheme: FloatingActionButtonThemeData(),
                   ),
                   child: FloatingActionButton(

@@ -26,6 +26,13 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    ProfileController();
+    super.initState();
+  }
+
   final profileController = Get.put(ProfileController());
 
   final _authRepo = Get.put(AuthenticationRepository());

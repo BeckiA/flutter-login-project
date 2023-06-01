@@ -5,6 +5,8 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/features/authentication/controllers/profile_controller.dart';
 import 'package:login_app/src/features/authentication/model/user_model.dart';
 import 'package:login_app/src/features/authentication/screens/profile/Image_picker.dart';
+import 'package:login_app/src/features/authentication/screens/profile/profile_screen.dart';
+import 'package:login_app/src/features/core/screens/main_screen.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../constants/image_strings.dart';
@@ -179,7 +181,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                       width: double.infinity,
                                       child: ElevatedButton(
                                           onPressed: () async {
-                                            // Get.to(UpdateProfileScreen());
                                             final userData = UserModel(
                                                 email: email.text.trim(),
                                                 password: password.text.trim(),
@@ -187,6 +188,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                                 phoneNo: phoneNo.text.trim());
                                             await controller
                                                 .updateRecord(userData);
+                                            setState(() {
+                                              Get.to(MainScreen());
+                                            });
                                           },
                                           style: ElevatedButton.styleFrom(
                                               backgroundColor: VAPrimaryColor,

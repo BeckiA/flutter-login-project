@@ -77,7 +77,7 @@ class NoteViewScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: selectedNote.imagePath == null
+              child: selectedNote.imagePath == ''
                   ? const SizedBox.shrink()
                   : Image.file(
                       File(selectedNote.imagePath),
@@ -97,9 +97,9 @@ class NoteViewScreen extends StatelessWidget {
       floatingActionButton: Theme(
         data: ThemeData(
           // ignore: deprecated_member_use
-          accentColor:
+          hintColor:
               themeController.isDarkMode.value ? VAPrimaryColor : VAAccentColor,
-          backgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Theme.of(context).hintColor,
           floatingActionButtonTheme: FloatingActionButtonThemeData(),
         ),
         child: FloatingActionButton(

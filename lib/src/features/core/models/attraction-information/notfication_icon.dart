@@ -16,7 +16,7 @@ class NoNotfications extends StatelessWidget {
           style: TextStyle(fontFamily: "Poppins", fontSize: 16)),
       actions: [
         TextButton(
-          child: const Text('Yes'),
+          child: const Text('Ok'),
           onPressed: () {
             Navigator.pop(context);
           },
