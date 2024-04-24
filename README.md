@@ -1,16 +1,15 @@
-# login_app
+# Visit Amhara
 
-A new Flutter project.
+### Visit Amhara cross-platform tourism application
 
-## Getting Started
+Professionally developed a captivating mobile application showcasing the
+exquisite tourism riches of Amhara, Ethiopia. Leveraged Dart language and the
+Flutter framework to create an engaging and visually stunning user interface (UI),
+providing an interactive and immersive user experience (UX). Implemented GetX
+state management for efficient data handling and seamless transitions, ensuring
+optimal performance. This remarkable app serves as a testament to my expertise
+in mobile app development, highlighting my proficiency in Dart, Flutter, UI/UX
+design, and GetX state management.
 
-This project is a starting point for a Flutter application.
+![Visit Amhara](https://github.com/BeckiA/Visit-Amhara/blob/master/visit_amhara_final.png?raw=true)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
